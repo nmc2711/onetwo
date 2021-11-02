@@ -7,6 +7,7 @@ import { getProducts, getProduct } from "../../lib/products";
 // c
 import Head from "next/head"; 
 import Title from "../../components/common/Title";
+import Image from 'next/image';
 import { ApiError } from "../../lib/api";
 
 export async function getStaticPaths() {
@@ -47,7 +48,11 @@ const ProductPage: NextPage = ({ product }: any) => {
 
       <main className="px-2 py-1">
         <Title>{product.title}</Title>
-        <p>{product.description}</p>
+        <div className="flex">
+          <Image alt="상세 페이지 이미지" width={640} height={400} src={product.pictureUrl}/>
+          <p>{product.description}</p>
+        </div>
+
       </main>
     </>
   );
