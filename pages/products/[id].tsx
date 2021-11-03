@@ -48,11 +48,17 @@ const ProductPage: NextPage = ({ product }: any) => {
 
       <main className="px-2 py-1">
         <Title>{product.title}</Title>
-        <div className="flex">
-          <Image alt="상세 페이지 이미지" width={640} height={400} src={product.pictureUrl}/>
-          <p>{product.description}</p>
-        </div>
+        <div className="flex flex-col lg:flex-row">
+          <div>
+            {product.pictureUrl && <Image alt="상세 페이지 이미지" width={640} height={400} src={product.pictureUrl} />}
+          </div>
 
+          <div className="flex-1 lg:ml-4">
+            <p className="text-sm">{product.description}</p>
+            <p className="text-lg font-bold mt-2">최저 음식 금액: {product.price}</p>
+          </div>
+
+        </div>
       </main>
     </>
   );
