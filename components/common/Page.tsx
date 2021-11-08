@@ -4,7 +4,7 @@
 
 import Head from 'next/head';
 import React from 'react';
-import NavBar from './Navbar'
+import NavBar from './Navbar';
 import Title from './Title';
 interface PageProps {
   title: string;
