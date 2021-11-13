@@ -1,3 +1,11 @@
 GET http://localhost:1337/products/1
 
 ###
+
+POST http://localhost:1337/auth/local
+Content-Type: application/json
+
+{
+  "identifier": "nmc2711@naver.com",
+  "password": "tkdgks12"
+}
