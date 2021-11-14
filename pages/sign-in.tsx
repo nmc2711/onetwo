@@ -1,5 +1,5 @@
 /**
- * @title : 회원가입 페이지
+ * @title : 로그인 페이지
  */
 import { useRouter } from 'next/router';
 import React, { FormEventHandler, useState } from 'react';
@@ -15,18 +15,28 @@ function SigInPage() {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [status, setStatus] = useState({
+    error: false,
+    loading: false,
+  });
   
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
-    const response = await fetchJson('http://localhost:1337/auth/local', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ identifier: email, password }),
-    });
+    setStatus({ loading: true, error: false });
+    try {
+      const response = await fetchJson('http://localhost:1337/auth/local', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ identifier: email, password }),
+      });
+      setStatus({ loading: false, error: false }); 
       console.log('로그인 테스트', response);
+    } catch (err) {
+      setStatus({ loading: false, error: true });
+    }
   };
   return (
-    <Page title="헛둘 회원가입">
+    <Page title="헛둘 로그인">
       <form onSubmit={handleSubmit}>
         <Field label="이메일">
           <Input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
@@ -34,9 +44,13 @@ function SigInPage() {
         <Field label="비밀번호">
           <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required />
         </Field>
-        <Button type="submit">
-          회원가입
-        </Button>   
+        {status.error &&
+        <p className="text-red-700">
+          잘못된 이메일 또는 비밀번호 입니다.
+        </p>}
+        {status.loading ? 
+        <p className="text-blue-700">헛둘 회원님! 로그인중입니다..</p>
+        : <Button type="submit">로그인</Button>}
       </form>
     </Page>
  );
