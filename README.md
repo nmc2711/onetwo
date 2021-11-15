@@ -12,6 +12,6 @@
 
 /mypage : 마이 페이지<br />
 
-/products:seq : 가게상세 페이지<br />
+/products/:seq : 가게상세 페이지<br />
 
 /sign-in : 로그인 페이지<br />
