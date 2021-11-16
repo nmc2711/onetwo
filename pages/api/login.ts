@@ -11,23 +11,25 @@ const handler = async (req:any, res:any) => {
     return;
   }
   const { email, password } = req.body;
+  
   try {
     const { jwt, user } = await fetchJson(`${CMS_URL}/auth/local`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ identifier: email, password }),
     });
+    console.log('email', user)
     res.status(200)
     .setHeader('Set-Cookie', cookie.serialize('jwt', jwt, {
       path: '/api',
       httpOnly: true,
     }))
-    .json({
+    return res.json({
       id: user.id,
       name: user.username,
     })
- 
   } catch (err) {
+    console.log(err)
     res.status(401).end();
   }
 }
