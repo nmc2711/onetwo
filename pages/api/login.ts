@@ -1,10 +1,12 @@
 import cookie from 'cookie';
+
 const { CMS_URL } = process.env;
+import { NextApiHandler } from 'next';
 
 import { fetchJson } from "../../lib/api";
 
-async function handler(req: any, res: any) {
-  if(req.method !== 'POST') {
+const handler = async (req:any, res:any) => {
+  if (req.method !== 'POST') {
     res.status(405).end();
     return;
   }
@@ -23,11 +25,11 @@ async function handler(req: any, res: any) {
     .json({
       id: user.id,
       name: user.username,
-    });      
-  } catch(err) {
+    })
+ 
+  } catch (err) {
     res.status(401).end();
   }
-
 }
 
 export default handler;
