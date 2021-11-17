@@ -3,18 +3,20 @@
  */
 import type { NextPage } from "next";
 
+import Page from '../components/common/Page';
+
 import Head from "next/head";
 
 const MyPage: NextPage = () => {
   return (
-    <div>
+    <Page title="헛둘 마이페이지">
       <Head>
         <title>마이페이지</title>
         <meta name="description" content="푸렌드 마이페이지" />
       </Head>
 
       <h1>마이페이지</h1>
-    </div>
+    </Page>
   );
 };
 export default MyPage;

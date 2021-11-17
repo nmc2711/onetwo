@@ -15,6 +15,11 @@ const Navbar = () => {
               <a>마이페이지로 이동</a>
             </Link>
           </li>
+          <li>
+            <Link href="/sign-in">
+              <a>로그인페이지 이동</a>
+            </Link>
+          </li>
         </ul>
 
         {/* style */}
