@@ -7,7 +7,11 @@ interface ProductCardProps {
   product: Product;
 }
 
+import { useDispatch, useSelector } from 'react-redux';
+
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+  const list = useSelector(({ state }: any) => state.reviewList);
+  console.log('list');
   return (
     <div className="border w-80 shadow hover:shadow-xl" style={{ height: '340px' }}>
       <Link href={`/products/${product.id}`}>

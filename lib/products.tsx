@@ -1,14 +1,7 @@
 import { fetchJson } from './api';
 
+import { Product } from '../@types/product'; //이걸로 바꿔야 할듯 
 const { CMS_URL } = process.env;
-
-export interface Product {
-  id: number;
-  title: string;
-  description: string;
-  price: string;
-  pictureUrl: string;
-}
 
 export async function getProduct(id: string): Promise<Product> {
   const product = await fetchJson(`${CMS_URL}/products/${id}`);
