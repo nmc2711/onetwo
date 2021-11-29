@@ -3,7 +3,7 @@ import { NextApiHandler } from 'next';
 
 const { CMS_URL } = process.env;
 
-const handleUser: NextApiHandler = async(req, res) => {
+const handleUser = async(req:any, res:any) => {
     const { jwt } = req.cookies;
     if (!jwt) {
       res.status(401).end();
