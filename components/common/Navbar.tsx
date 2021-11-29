@@ -1,7 +1,24 @@
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { fetchJson } from "../../lib/api";
 
 const Navbar = () => {
-  const user = undefined;
+  const [user, setUser] = useState();
+
+  const SettingUser = async () => {
+    try {
+      const user = await fetchJson('/api/user');
+      console.log('타야해..', user)
+      setUser(user);
+    } catch (error) {
+    }
+  }
+  
+  useEffect(() => {
+    SettingUser();
+  }, []);
+  console.log('nabar user', user)
+
   return (
     <>
       <nav className="px-2 py-1 text-sm">
@@ -20,7 +37,7 @@ const Navbar = () => {
             {user ? (
               <>
                 <li>
-                  {user['name']}
+                  황상한
                 </li>
                 <li>
                   <button>로그아웃</button>
