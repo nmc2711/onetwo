@@ -19,7 +19,7 @@ export const productSlice = createSlice({
   }
 });
 
-export const getProduct = (state: any) => state.user;
+export const getProduct = (state: any) => state.product;
 
 export const { setProduct, resetProduct } = productSlice.actions;
 
