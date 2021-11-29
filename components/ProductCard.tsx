@@ -1,10 +1,10 @@
 
 import Link from 'next/link';
 import React from 'react';
-import { Product } from '../lib/products';
+
 import Image from 'next/image';
 interface ProductCardProps {
-  product: Product;
+  product: any;
 }
 
 import { useDispatch, useSelector } from 'react-redux';
