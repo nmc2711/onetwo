@@ -1,4 +1,4 @@
-## 나의 식사 친구 어디에 있을까? 헛둘 !
+## 나의 식사 친구 어디에 있을까? 헛둘 !!
 
 - FrontEndStack : Next js / Typescript
 
