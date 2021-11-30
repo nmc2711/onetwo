@@ -9,6 +9,10 @@ import Image from 'next/image';
 import { ApiError } from "../../lib/api";
 import Page from "../../components/common/Page";
 
+// toolkit
+import { useSelector, useDispatch } from 'react-redux';
+import { getProductItem, setProduct } from '../../redux/slices/productSlice'
+
 export async function getStaticPaths() {
   const products = await getProducts();
   return {
@@ -37,6 +41,9 @@ export async function getStaticProps({ params: { id } }: any) {
 }
 
 const ProductPage: NextPage = ({ product }: any) => {
+  const productRedux = useSelector(getProductItem);
+
+  console.log('리덕스테스트', productRedux);
   return (
     <Page title={product.title}>
       <div className="flex flex-col lg:flex-row">
