@@ -31,6 +31,7 @@ function SigInPage() {
       });
       setStatus({ loading: false, error: false }); 
       console.log('로그인 테스트', response);
+      router.push('/');
     } catch (err) {
       setStatus({ loading: false, error: true });
     }

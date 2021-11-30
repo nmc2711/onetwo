@@ -1,7 +1,6 @@
 import cookie from 'cookie';
 
 const { CMS_URL } = process.env;
-import { NextApiHandler } from 'next';
 
 import { fetchJson } from "../../lib/api";
 

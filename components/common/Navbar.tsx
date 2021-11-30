@@ -2,8 +2,13 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { fetchJson } from "../../lib/api";
 
+interface TUser {
+  id: number | null;
+  name: string | null;
+};
+
 const Navbar = () => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<TUser>();
 
   const SettingUser = async () => {
     try {
@@ -13,12 +18,15 @@ const Navbar = () => {
     } catch (error) {
     }
   }
-  
+
   useEffect(() => {
     SettingUser();
   }, []);
-  console.log('nabar user', user)
-
+  
+  const handleSignOut = async () => {
+    await fetchJson('/api/logout');
+    setUser(undefined);
+  }
   return (
     <>
       <nav className="px-2 py-1 text-sm">
@@ -37,10 +45,10 @@ const Navbar = () => {
             {user ? (
               <>
                 <li>
-                  황상한
+                  {user.name}
                 </li>
                 <li>
-                  <button>로그아웃</button>
+                  <button onClick={handleSignOut}>로그아웃</button>
                 </li>              
               </>
 
