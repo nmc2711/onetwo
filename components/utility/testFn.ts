@@ -39,4 +39,17 @@ export const SumOfTwoNum = (num1: number, num2: number) => {
 
   return result;
 }
-// SumOfTwoNum(1,5) .. return 
+// SumOfTwoNum(1,5) .. return 9
+
+export const MaskingPhoneNum = (phoneStr: string, isDash?: boolean) => {
+  let result = '';
+
+  let splitPhoneNum = phoneStr.split('-');
+
+  const purePhoneStr = phoneStr.replace(/-/gi, '');
+
+  result = purePhoneStr.slice(0, splitPhoneNum[0].length) + "*".repeat(purePhoneStr.length - (splitPhoneNum[0].length + splitPhoneNum[2].length)) + purePhoneStr.slice(-splitPhoneNum[2].length);
+
+  return result;
+
+};
