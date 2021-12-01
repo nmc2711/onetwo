@@ -27,3 +27,16 @@ export const NoOverlapNumberArr = (arr: number[]) => {
   return result;
 }
 // NoOverlapNumberArr([7,7,9,8,8,1]) .. return [7,9,8,1]
+
+export const SumOfTwoNum = (num1: number, num2: number) => {
+  let result = 0;
+  // 두 정수의 사이의 합
+  const maxNum = Math.max(num1, num2),
+        minNum = Math.min(num1, num2);
+  for (let i = minNum + 1; i < maxNum; i++) {
+    result = result + i;
+  }
+
+  return result;
+}
+// SumOfTwoNum(1,5) .. return 
