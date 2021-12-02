@@ -19,13 +19,13 @@ const Navbar = () => {
     cacheTime: Infinity,
     staleTime: 40_00,
   });
-  const user = query.data;
+  let user = query.data;
 
   console.log('여기니?', user);
 
   const handleSignOut = async () => {
     await fetchJson('/api/logout');
-    // setUser(undefined);
+    user = undefined;
   }
 
   return (
