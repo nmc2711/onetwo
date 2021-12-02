@@ -16,17 +16,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="border w-80 shadow hover:shadow-xl" style={{ height: '340px' }} onClick={() => dispatch(setProduct({ id: product.id, title: product.title }))}>
+    <div className="lg:flex" onClick={() => dispatch(setProduct({ id: product.id, title: product.title }))}>
       <Link href={`/products/${product.id}`}>
         <a>
-          {product.pictureUrl && <Image src={product.pictureUrl} alt="음식점 이미지" width={320} height={240} />}
-          <div className="p-2 flex justify-between items-baseline" >
+          <div className="md:flex-shrink-0">
+            {product.pictureUrl && <img className="w-96 h-96 object-cover sm:w-4 md:w-80 lg:w-100 xl:w-80" src={product.pictureUrl} alt="음식점 이미지" />}
+          </div>
+          <div className="p-2">
             <h2 className="text-lg font-bold">
               {product.title}
             </h2>
-            <span>
-              최소금액 {product.price}
-            </span>
+            <p>최소금액 {product.price}</p>
           </div>
         </a>
       </Link>

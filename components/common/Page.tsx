@@ -6,6 +6,7 @@ import Head from 'next/head';
 import React from 'react';
 import NavBar from './Navbar';
 import Title from './Title';
+
 interface PageProps {
   title: string;
 }
@@ -19,7 +20,7 @@ const Page: React.FC<PageProps> = ({ title, children }) => {
       <header>
         <NavBar />
       </header>
-      <main className="px-6 py-4">
+      <main>
         <Title>{title}</Title>
         {children}
       </main>
