@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useQuery } from "react-query";
 import { fetchJson } from "../../lib/api";
 
 interface TUser {
@@ -8,25 +9,25 @@ interface TUser {
 };
 
 const Navbar = () => {
-  const [user, setUser] = useState<TUser>();
-
-  const SettingUser = async () => {
+  const query = useQuery('user', async () => {
     try {
-      const user = await fetchJson('/api/user');
-      console.log('타야해..', user)
-      setUser(user);
+      return await fetchJson('/api/user');
     } catch (error) {
+      return undefined;
     }
-  }
+  }, {
+    cacheTime: Infinity,
+    staleTime: 40_00,
+  });
+  let user = query.data;
 
-  useEffect(() => {
-    SettingUser();
-  }, []);
+  console.log('여기니?', user);
 
   const handleSignOut = async () => {
     await fetchJson('/api/logout');
-    setUser(undefined);
+    user = undefined;
   }
+
   return (
     <>
       <nav className="py-1 text-sm">
