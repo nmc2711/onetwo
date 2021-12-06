@@ -3,10 +3,7 @@
  */
 
 import type { AppProps } from "next/app";
-
-import { Provider } from 'react-redux';
-
-import store from "../redux/store";
+import { wrapper } from "../store";
 
 import Head from 'next/head';
 
@@ -14,7 +11,7 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
+    <>
       {/* 브라우저 탭 */}
       <Head>
         <link rel="icon" href="/icons/favicon.ico" />
@@ -22,8 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       {/* 뷰 */}
       <Component {...pageProps} />
-    </Provider>
+    </>
   );
 }
 
-export default MyApp;
+//이 작업을 통해서 getInitialProps, getServerSideProps등의 함수 내에서 스토어 접근 가능해짐
+export default wrapper.withRedux(MyApp);

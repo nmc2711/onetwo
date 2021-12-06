@@ -71,3 +71,9 @@ Pre-rendering은 SEO에서 더 나은 퍼포먼스를 보여줄 수 있다.
     return { props: { products }};
   }
 ```
+
+### redux next.js
+1. next-redux-wrapper를 설치하는 이유 
+- next.js에선 유저가 요청할 때마다 redux store를 새로 생성한다. 요청할 때마다 makeStore함수를 정의해서 넘겨줘야함
+- next.js가 제공하는 `getInitialProps`, `getServerSideProps`등에서 스토어에 접근하기 위해 필요함
+`getInitialProps`: 

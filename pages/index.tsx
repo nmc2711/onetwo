@@ -8,6 +8,7 @@ import { getProducts } from "../lib/products";
 import ProductCard from "../components/ProductCard";
 import Page from "../components/common/Page";
 
+// import { TProduct  } from "../@types/product";
 // SideEffect
 export async function getServerSideProps() {
   const products = await getProducts();

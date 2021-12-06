@@ -4,15 +4,15 @@ import React from 'react';
 
 // toolkit
 import { useDispatch } from 'react-redux';
-import { setProduct } from '../redux/slices/productSlice';
+import { setProduct } from '../store/modules/productSlice';
 
 import Image from 'next/image';
 
-interface ProductCardProps {
+interface Props {
   product: any;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
+const ProductCard: React.FC<Props> = ({ product }) => {
   const dispatch = useDispatch();
 
   return (
