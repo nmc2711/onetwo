@@ -1,31 +1,13 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { useQuery } from "react-query";
+import { useUser } from "../../hooks/user";
 import { fetchJson } from "../../lib/api";
 
-interface TUser {
-  id: number | null;
-  name: string | null;
-};
-
 const Navbar = () => {
-  const query = useQuery('user', async () => {
-    try {
-      return await fetchJson('/api/user');
-    } catch (error) {
-      return undefined;
-    }
-  }, {
-    cacheTime: Infinity,
-    staleTime: 40_00,
-  });
-  let user = query.data;
 
-  console.log('여기니?', user);
+  const user = useUser();
 
   const handleSignOut = async () => {
     await fetchJson('/api/logout');
-    user = undefined;
   }
 
   return (
@@ -50,7 +32,7 @@ const Navbar = () => {
                 </li>
                 <li>
                   <button onClick={handleSignOut}>로그아웃</button>
-                </li>              
+                </li>
               </>
 
             ) :
