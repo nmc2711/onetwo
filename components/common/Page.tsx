@@ -6,18 +6,17 @@ import Head from 'next/head';
 import React from 'react';
 import NavBar from './Navbar';
 import Title from './Title';
-
-import { PageWrapper } from '../style/pageStyle';
+import { Wrap } from '../style/pageStyle';
 
 interface PageProps {
   title: string;
-  isMobil?: boolean;
+  isMobil?: string | undefined
 }
 
 const Page: React.FC<PageProps> = ({ title, children, isMobil }) => {
-  console.log("??" , isMobil)
+  console.log("???" , isMobil)
   return (
-    <PageWrapper isMobil={isMobil}>
+    <Wrap isMobil={isMobil}>
       <Head>
         <title>{title} - 헛둘페이지</title>
       </Head>
@@ -28,7 +27,7 @@ const Page: React.FC<PageProps> = ({ title, children, isMobil }) => {
         <Title>{title}</Title>
         {children}
       </main>
-    </PageWrapper>
+    </Wrap>
   );
 };
 export default Page;

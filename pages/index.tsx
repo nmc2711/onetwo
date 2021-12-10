@@ -15,7 +15,7 @@ export async function getServerSideProps() {
 const HomePage: NextPage = ({ products , isMobil }: any) => {
   return (
     <Page title="내 푸드메이트는 어디에 있을까? 헛둘!" isMobil={isMobil}>
-      <ul className="flex flex-wrap">
+      <ul className="__ul">
         {products.map((product: any) => (
           <li className="__list" key={product.id} >
             <ProductCard product={product} />

@@ -3,22 +3,19 @@
  */
 
 import type { AppProps } from "next/app";
-
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import store from "../redux/store";
-
 import Head from 'next/head';
 
+import useCheckOs from '../components/utility/getCheckOs';
 import "../styles/globals.css";
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const agent: any = typeof window !== 'undefined' && window.navigator.userAgent;
-  const isMobil = /iPhone|iPad|iPod|Android/i.test(agent);
-
+  const isMobil = useCheckOs();
   return (
     <Provider store={store}>
       <QueryClientProvider client={queryClient} >
@@ -28,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Head>
 
         {/* 뷰 */}
-        <Component {...pageProps} isMobil={isMobil} />
+        <Component {...pageProps} isMobil ={isMobil}/>
       </QueryClientProvider>
     </Provider>
   );

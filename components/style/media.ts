@@ -5,10 +5,8 @@ type TSize = {
 }
 
 const DeviceSize: TSize = {
-  smMobile: 480,
-  mdMobile: 768,
-  lgMobile: 1024,
-  xlMobile:1280
+  smMobile: 768,
+  // mdMobile: 768,
 };
 
 export default Object.keys(DeviceSize).reduce((acc: any, label) => {

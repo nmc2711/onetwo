@@ -16,7 +16,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="lg:flex" onClick={() => dispatch(setProduct({ id: product.id, title: product.title }))}>
+    <div onClick={() => dispatch(setProduct({ id: product.id, title: product.title }))}>
       <Link href={`/products/${product.id}`}>
         <a>
           <div className="md:flex-shrink-0">
