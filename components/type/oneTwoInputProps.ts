@@ -1,7 +1,6 @@
 /**
- * @title : 원투 공통 인풋 타입정리
+ * @title : 원투 공통 인풋타입
  */
-
 import React from 'react';
 
 export interface Props {
@@ -21,4 +20,19 @@ export interface Props {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onClearClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onIconClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
+
+export const defaultProps = {
+  disabled: false,
+  readonly: false,
+  clearable: false,
+  iconClickable: false,
+  htmlType: 'text',
+  className: '',
+  placeholder: '',
+  initialValue: '',
+}
+
+export type NativeAttrs = Omit<React.InputHTMLAttributes<any>, keyof Props>
