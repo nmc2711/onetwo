@@ -20,6 +20,7 @@ const handleUser = async(req:any, res:any) => {
     } catch (err) {
       res.status(401).end();
     }
+  
 }
 
 export default handleUser;
