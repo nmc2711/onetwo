@@ -26,10 +26,10 @@ export interface Props {
 
 export const defaultProps = {
   disabled: false,
-  readonly: false,
+  readOnly: false,
   clearable: false,
   iconClickable: false,
-  htmlType: 'text',
+  htmlTypes: 'text',
   className: '',
   placeholder: '',
   initialValue: '',
