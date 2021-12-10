@@ -12,22 +12,23 @@ import store from "../redux/store";
 import Head from 'next/head';
 
 import "../styles/globals.css";
-import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const agent: any = typeof window !== 'undefined' && window.navigator.userAgent;
+  const isMobil = /iPhone|iPad|iPod|Android/i.test(agent);
 
   return (
     <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
+      <QueryClientProvider client={queryClient} >
         {/* 브라우저 탭 */}
         <Head>
           <link rel="icon" href="/icons/favicon.ico" />
         </Head>
 
         {/* 뷰 */}
-        <Component {...pageProps} />
+        <Component {...pageProps} isMobil={isMobil} />
       </QueryClientProvider>
     </Provider>
   );

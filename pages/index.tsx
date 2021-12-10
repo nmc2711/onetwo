@@ -12,9 +12,9 @@ export async function getServerSideProps() {
   return { props: { products, revalidate: 5 * 60 } };
 }
 
-const HomePage: NextPage = ({ products }: any) => {
+const HomePage: NextPage = ({ products , isMobil }: any) => {
   return (
-    <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
+    <Page title="내 푸드메이트는 어디에 있을까? 헛둘!" isMobil={isMobil}>
       <ul className="flex flex-wrap">
         {products.map((product: any) => (
           <li className="__list" key={product.id} >

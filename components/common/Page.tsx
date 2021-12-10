@@ -11,12 +11,13 @@ import { PageWrapper } from '../style/pageStyle';
 
 interface PageProps {
   title: string;
+  isMobil?: boolean;
 }
 
-const Page: React.FC<PageProps> = ({ title, children, }) => {
-
+const Page: React.FC<PageProps> = ({ title, children, isMobil }) => {
+  console.log("??" , isMobil)
   return (
-    <PageWrapper>
+    <PageWrapper isMobil={isMobil}>
       <Head>
         <title>{title} - 헛둘페이지</title>
       </Head>
