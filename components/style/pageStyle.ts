@@ -37,7 +37,7 @@ export const Wrap = styled.div<{ isMobil: string | undefined }>`
     justify-content: space-between;
   }
 
-  
+
   ${media.smMobile`
     background-color: orange;
   #__next {
@@ -46,7 +46,7 @@ export const Wrap = styled.div<{ isMobil: string | undefined }>`
     font-size: 14px;
   }
   .__title {
-    font-size: 14px;
+    font-size: 20px;
     padding: 10px 0;
   }
   .__nav {
@@ -54,6 +54,7 @@ export const Wrap = styled.div<{ isMobil: string | undefined }>`
     margin-bottom: 5px;
     padding: 15px 0;
     background-color: antiquewhite;
+    font-size: 18px;
   }
   .__list {
   /* margin: 0 30px 30px 0 */

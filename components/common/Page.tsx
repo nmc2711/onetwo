@@ -14,7 +14,6 @@ interface PageProps {
 }
 
 const Page: React.FC<PageProps> = ({ title, children, isMobil }) => {
-  console.log("???" , isMobil)
   return (
     <Wrap isMobil={isMobil}>
       <Head>
