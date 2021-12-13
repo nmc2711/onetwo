@@ -3,6 +3,7 @@
  */
 import { useRouter } from 'next/router';
 import React, { FormEventHandler, useState } from 'react';
+import { useMutation } from 'react-query';
 
 import Button from '../components/common/Button';
 import Field from '../components/common/Field';
@@ -19,18 +20,19 @@ function SigInPage() {
     error: false,
     loading: false,
   });
+
+  const mutation = useMutation(() => fetchJson('/api/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password }),
+    }));
   
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
     setStatus({ loading: true, error: false });
     try {
-      const response = await fetchJson('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-      setStatus({ loading: false, error: false }); 
-      console.log('로그인 테스트', response);
+      const user = await mutation.mutateAsync();
+      console.log('로그인', user);
       router.push('/');
     } catch (err) {
       setStatus({ loading: false, error: true });
@@ -45,11 +47,11 @@ function SigInPage() {
         <Field label="비밀번호">
           <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required />
         </Field>
-        {status.error &&
+        {mutation.isError &&
         <p className="text-red-700">
           잘못된 이메일 또는 비밀번호 입니다.
         </p>}
-        {status.loading ? 
+        {mutation.isLoading ? 
         <p className="text-blue-700">헛둘 회원님! 로그인중입니다..</p>
         : <Button type="submit">로그인</Button>}
       </form>
