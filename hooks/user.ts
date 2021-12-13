@@ -10,7 +10,7 @@ export function useUser() {
     }
       }, {
       cacheTime: Infinity,
-      staleTime: 40_00,
+      staleTime: 30_000,
     });
   return query.data;
 }

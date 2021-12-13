@@ -1,5 +1,4 @@
 import { fetchJson } from "../../lib/api";
-import { NextApiHandler } from 'next';
 
 const { CMS_URL } = process.env;
 

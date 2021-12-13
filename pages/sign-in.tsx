@@ -3,7 +3,7 @@
  */
 import { useRouter } from 'next/router';
 import React, { FormEventHandler, useState } from 'react';
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 
 import Button from '../components/common/Button';
 import Field from '../components/common/Field';
@@ -16,26 +16,24 @@ function SigInPage() {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [status, setStatus] = useState({
-    error: false,
-    loading: false,
-  });
+
+  const queryClient = useQueryClient();
 
   const mutation = useMutation(() => fetchJson('/api/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
-    }));
+  }));
   
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
-    setStatus({ loading: true, error: false });
     try {
       const user = await mutation.mutateAsync();
+      queryClient.setQueryData('user', user);
       console.log('로그인', user);
       router.push('/');
     } catch (err) {
-      setStatus({ loading: false, error: true });
+      // err
     }
   };
   return (
