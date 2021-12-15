@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import media from "./media"
 
 export const Wrap = styled.div<{ isMobil: string | undefined }>`
-  background-color: green;
+  background-color: ${({ theme }: any) => theme.subColor};
   #__next {
     font-size: 16px;
   }
@@ -23,7 +23,7 @@ export const Wrap = styled.div<{ isMobil: string | undefined }>`
 
 
   ${media.smMobile`
-  background-color: orange;
+  background-color: ${({ theme }: any) => theme.mainColor};
   #__next {
     /* width: 50%; */
     padding: 0 20px;
