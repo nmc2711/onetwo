@@ -3,13 +3,12 @@
  */
 import { useRouter } from 'next/router';
 import React, { FormEventHandler, useState } from 'react';
-import { useMutation, useQueryClient } from 'react-query';
+import { useSignIn } from '../hooks/user';
 
 import Button from '../components/common/Button';
 import Field from '../components/common/Field';
 import Input from '../components/common/Input';
 import Page from '../components/common/Page';
-import { fetchJson } from '../lib/api';
 
 function SigInPage() {
   const router = useRouter();
@@ -17,23 +16,13 @@ function SigInPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const queryClient = useQueryClient();
-
-  const mutation = useMutation(() => fetchJson('/api/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),
-  }));
+  const { signIn, signInLoading, signInError } = useSignIn();
   
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
-    try {
-      const user = await mutation.mutateAsync();
-      queryClient.setQueryData('user', user);
-      console.log('로그인', user);
+    const valid = await signIn(email, password);
+    if (valid) {
       router.push('/');
-    } catch (err) {
-      // err
     }
   };
   return (
@@ -45,11 +34,11 @@ function SigInPage() {
         <Field label="비밀번호">
           <Input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required />
         </Field>
-        {mutation.isError &&
+        {signInError &&
         <p className="text-red-700">
           잘못된 이메일 또는 비밀번호 입니다.
         </p>}
-        {mutation.isLoading ? 
+        {signInLoading ? 
         <p className="text-blue-700">헛둘 회원님! 로그인중입니다..</p>
         : <Button type="submit">로그인</Button>}
       </form>
