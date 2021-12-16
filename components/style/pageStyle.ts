@@ -2,9 +2,9 @@ import styled, { css } from 'styled-components';
 import media from "./media"
 
 export const Wrap = styled.div<{ isMobil: string | undefined }>`
-  background-color: ${({ theme }: any) => theme.subColor};
+  background-color: ${({ theme }: any) => theme.colors.subColor};
   #__next {
-    font-size: 16px;
+    ${({ theme }: any) => theme.fonts.body2.bold};
   }
   .__title {
     font-size: 22px;
