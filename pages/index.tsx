@@ -9,6 +9,7 @@ import { getProducts } from "../lib/products";
 import ProductCard from "../components/ProductCard";
 import Page from "../components/common/Page";
 
+//style
 import { ResponsiveBox } from '../styles/customStyle';
 
 // SideEffect
@@ -22,9 +23,7 @@ const HomePage: NextPage = ({ products }: any) => {
     <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
       <ResponsiveBox>
         {products.map((product: any) => (
-          <div key={product.id}>
-            <ProductCard product={product} />
-          </div>
+          <ProductCard product={product} key={product.id}/>
         ))}
       </ResponsiveBox>
     </Page>
