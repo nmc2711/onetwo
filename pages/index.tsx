@@ -9,6 +9,8 @@ import { getProducts } from "../lib/products";
 import ProductCard from "../components/ProductCard";
 import Page from "../components/common/Page";
 
+import { ResponsiveBox } from '../styles/customStyle';
+
 // SideEffect
 export async function getServerSideProps() {
   const products = await getProducts();
@@ -18,13 +20,13 @@ export async function getServerSideProps() {
 const HomePage: NextPage = ({ products }: any) => {
   return (
     <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
-      <ul className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <ResponsiveBox>
         {products.map((product: any) => (
-          <li key={product.id}>
+          <div key={product.id}>
             <ProductCard product={product} />
-          </li>
+          </div>
         ))}
-      </ul>
+      </ResponsiveBox>
     </Page>
   );
 };

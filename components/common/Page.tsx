@@ -7,7 +7,7 @@ import React, { useMemo } from 'react';
 import NavBar from './Navbar';
 import Title from './Title';
 
-import { PageWrapper } from '../style/pageStyle';
+import { Box } from "@chakra-ui/layout";
 import { useColorMode } from '@chakra-ui/color-mode';
 
 interface PageProps {
@@ -21,14 +21,14 @@ const Page: React.FC<PageProps> = ({ title, children, }) => {
     switch (colorMode) {
       case 'dark':
       case 'light':
-        return 'transparent'
+        return 'transparent';
       default:
         return 'gray';
     }
   },[colorMode]);
 
   return (
-    <PageWrapper style={{ backgroundColor: ThemeBG}}>
+    <Box bg={{ ThemeBG }}>
       <Head>
         <title>{title} - 헛둘페이지</title>
       </Head>
@@ -39,7 +39,7 @@ const Page: React.FC<PageProps> = ({ title, children, }) => {
         <Title>{title}</Title>
         {children}
       </main>
-    </PageWrapper>
+    </Box>
   );
 };
 export default Page;
