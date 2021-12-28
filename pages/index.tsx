@@ -11,6 +11,7 @@ import Page from "../components/common/Page";
 
 //style
 import { ResponsiveBox } from '../styles/customStyle';
+import FirstReviewBanner from "../components/common/AdBanner/review";
 
 // SideEffect
 export async function getServerSideProps() {
@@ -21,6 +22,7 @@ export async function getServerSideProps() {
 const HomePage: NextPage = ({ products }: any) => {
   return (
     <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
+      <FirstReviewBanner />
       <ResponsiveBox>
         {products.map((product: any) => (
           <ProductCard product={product} key={product.id}/>
