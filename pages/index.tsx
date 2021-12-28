@@ -1,10 +1,11 @@
 /**
- * @title : Page HomePage - 메인페이지
+ * @title : 메인페이지
+ * @path : '/'
  */
 import type { NextPage } from "next";
 
 import { getProducts } from "../lib/products";
-// c
+
 import ProductCard from "../components/ProductCard";
 import Page from "../components/common/Page";
 
@@ -28,3 +29,6 @@ const HomePage: NextPage = ({ products }: any) => {
   );
 };
 export default HomePage;
+
+// ** Description
+// Next의 유니크한 기능으로 Pre-Render 패턴 getStaticProps, getServerSideProps가 주로 쓰인다.

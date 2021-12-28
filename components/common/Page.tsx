@@ -3,20 +3,32 @@
  */
 
 import Head from 'next/head';
-import React from 'react';
+import React, { useMemo } from 'react';
 import NavBar from './Navbar';
 import Title from './Title';
 
 import { PageWrapper } from '../style/pageStyle';
+import { useColorMode } from '@chakra-ui/color-mode';
 
 interface PageProps {
   title: string;
 }
 
 const Page: React.FC<PageProps> = ({ title, children, }) => {
+  const { colorMode } = useColorMode();
+
+  const ThemeBG = useMemo(() => {
+    switch (colorMode) {
+      case 'dark':
+      case 'light':
+        return 'transparent'
+      default:
+        return 'gray';
+    }
+  },[colorMode]);
 
   return (
-    <PageWrapper>
+    <PageWrapper style={{ backgroundColor: ThemeBG}}>
       <Head>
         <title>{title} - 헛둘페이지</title>
       </Head>

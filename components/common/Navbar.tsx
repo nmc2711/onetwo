@@ -1,7 +1,9 @@
+import { useColorMode } from "@chakra-ui/color-mode";
 import Link from "next/link";
 import { useSignOut, useUser } from "../../hooks/user";
 
 const Navbar = () => {
+  const { colorMode, setColorMode } = useColorMode();
 
   const user = useUser();
   const signOut = useSignOut();
@@ -35,7 +37,11 @@ const Navbar = () => {
             <Link href="/sign-in">
               <a>로그인페이지 이동</a>
             </Link>}
-
+          </li>
+          <li>
+            <button onClick={() => setColorMode('light')}>라이트 모드</button>
+            <button onClick={() => setColorMode('dark')}>다크모드</button>
+            <button onClick={() => setColorMode('gradient')}>그라모드</button>
           </li>
         </ul>
         {/* style */}

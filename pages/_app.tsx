@@ -6,30 +6,34 @@ import type { AppProps } from "next/app";
 
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from "react-query";
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 
 import store from "../redux/store";
 
 import Head from 'next/head';
 
 import "../styles/globals.css";
+import theme from "../styles/theme";
 
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}>
+    <ChakraProvider theme={theme}>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <Provider store={store}>
+        <QueryClientProvider client={queryClient}>
+          {/* Browser Tab 접근성 */}
+          <Head>
+            <link rel="icon" href="/icons/favicon.ico" />
+          </Head>
 
-        {/* Browser Tab 접근성 */}
-        <Head>
-          <link rel="icon" href="/icons/favicon.ico" />
-        </Head>
+          {/* Child Components */}
+          <Component {...pageProps} />
 
-        {/* Child Components */}
-        <Component {...pageProps} />
-
-      </QueryClientProvider>
-    </Provider>
+        </QueryClientProvider>
+      </Provider>
+    </ChakraProvider>
   );
 }
 export default MyApp;
