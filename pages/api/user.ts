@@ -1,6 +1,6 @@
 import { fetchJson } from "../../lib/api";
 
-const { CMS_URL } = process.env;
+import { baseApiUrl } from '../../enum/config';
 
 const handleUser = async(req:any, res:any) => {
     const { jwt } = req.cookies;
@@ -9,7 +9,7 @@ const handleUser = async(req:any, res:any) => {
       return;
     }
     try {
-      const user = await fetchJson(`${CMS_URL}/users/me`, {
+      const user = await fetchJson(`${baseApiUrl}/users/me`, {
         headers: { 'Authorization': `Bearer ${jwt}` },
       });
       res.status(200).json({

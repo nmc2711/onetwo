@@ -1,6 +1,6 @@
 import cookie from 'cookie';
 
-const { CMS_URL } = process.env;
+import { baseApiUrl } from '../../enum/config';
 
 import { fetchJson } from "../../lib/api";
 
@@ -12,7 +12,7 @@ const handler = async (req:any, res:any) => {
   const { email, password } = req.body;
   
   try {
-    const { jwt, user } = await fetchJson(`${CMS_URL}/auth/local`, {
+    const { jwt, user } = await fetchJson(`${baseApiUrl}/auth/local`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ identifier: email, password }),
