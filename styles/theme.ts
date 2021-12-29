@@ -3,7 +3,7 @@ import { createBreakpoints } from '@chakra-ui/theme-tools';
 
 const config: ThemeConfig = {
   initialColorMode: 'light',
-  useSystemColorMode: true,
+  useSystemColorMode: false,
 };
 
 const breakpoints = createBreakpoints({

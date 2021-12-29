@@ -18,6 +18,7 @@ import theme from "../styles/theme";
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
+  
   return (
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />

@@ -5,7 +5,7 @@ import type { NextPage } from "next";
 import { getProducts, getProduct } from "../../lib/products";
 
 // c
-import Image from 'next/image';
+import { ImageW100 } from '../../styles/customStyle';
 import { ApiError } from "../../lib/api";
 import Page from "../../components/common/Page";
 
@@ -47,7 +47,7 @@ const ProductPage: NextPage = ({ product }: any) => {
     <Page title={product.title}>
       <div className="flex flex-col lg:flex-row">
         <div>
-          {product.pictureUrl && <Image alt="상세 페이지 이미지" width={640} height={400} src={product.pictureUrl} />}
+          {product.pictureUrl && <ImageW100 alt="상세 페이지 이미지" src={product.pictureUrl} h={360} />}
         </div>
 
         <div className="flex-1 lg:ml-4">

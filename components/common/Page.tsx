@@ -16,19 +16,19 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = ({ title, children, }) => {
   const { colorMode } = useColorMode();
-
+  console.log(colorMode);
   const ThemeBG = useMemo(() => {
     switch (colorMode) {
       case 'dark':
       case 'light':
         return 'transparent';
       default:
-        return 'gray';
+        return 'rgba(179, 44, 243, 0.85)';
     }
   },[colorMode]);
 
   return (
-    <Box bg={{ ThemeBG }}>
+    <Box bg={{ sm: ThemeBG, lg: ThemeBG }}>
       <Head>
         <title>{title} - 헛둘페이지</title>
       </Head>
