@@ -11,11 +11,14 @@ import Page from "../../components/common/Page";
 
 // toolkit
 import { useSelector, useDispatch } from 'react-redux';
-import { getProductItem, setProduct } from '../../redux/slices/productSlice'
+import { useAppDispatch, useAppSelector } from '../../toolkit/hooks';
+import { decrement, increment } from '../../features/counter';
+
 import { useUser } from "../../hooks/user";
 
 export async function getStaticPaths() {
   const products = await getProducts();
+
   return {
     paths: products.map((product: any) => ({
       params: { id: product.id.toString() },
@@ -42,7 +45,9 @@ export async function getStaticProps({ params: { id } }: any) {
 }
 
 const ProductPage: NextPage = ({ product }: any) => {
-  const productRedux = useSelector(getProductItem);
+  // toolkit
+  const dispatch = useAppDispatch();
+  const { value } = useAppSelector((state) => state.counter);
   return (
     <Page title={product.title}>
       <div className="flex flex-col lg:flex-row">
@@ -54,7 +59,11 @@ const ProductPage: NextPage = ({ product }: any) => {
           <p className="text-sm">{product.description}</p>
           <p className="text-lg font-bold mt-2">최저 음식 금액: {product.price}</p>
         </div>
-
+        <div>
+          툴킷 테스트 {value}
+          <button onClick={() => dispatch(decrement())}>감소</button>
+          <button onClick={() => dispatch(increment())}>증가</button>
+        </div>
       </div>
     </Page>
   );

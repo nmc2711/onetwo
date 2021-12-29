@@ -4,11 +4,10 @@
  */
 import type { AppProps } from "next/app";
 
-import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 
-import store from "../redux/store";
+import { wrapper } from '../toolkit/store';
 
 import Head from 'next/head';
 
@@ -22,7 +21,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <Provider store={store}>
         <QueryClientProvider client={queryClient}>
           {/* Browser Tab 접근성 */}
           <Head>
@@ -31,10 +29,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
           {/* Child Components */}
           <Component {...pageProps} />
-
         </QueryClientProvider>
-      </Provider>
     </ChakraProvider>
   );
 }
-export default MyApp;
+export default wrapper.withRedux(MyApp);
