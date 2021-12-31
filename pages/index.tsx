@@ -34,4 +34,4 @@ const HomePage: NextPage = ({ products }: any) => {
 export default HomePage;
 
 // ** Description
-// Next의 유니크한 기능으로 Pre-Render 패턴 getStaticProps, getServerSideProps가 주로 쓰인다.
+// Next JS의 Pre-Render 패턴 getStaticProps, getServerSideProps가 주로 쓰인다.
