@@ -4,8 +4,9 @@
  */
 import type { AppProps } from "next/app";
 
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClientProvider } from "react-query";
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
+import { queryClient } from '../apiCall/queryClient';
 
 import { wrapper } from '../toolkit/store';
 
@@ -14,7 +15,6 @@ import Head from 'next/head';
 import "../styles/globals.css";
 import theme from "../styles/theme";
 
-const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   

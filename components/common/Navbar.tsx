@@ -1,12 +1,13 @@
 import { useColorMode } from "@chakra-ui/color-mode";
 import { Box } from "@chakra-ui/layout";
 import Link from "next/link";
-import { useSignOut, useUser } from "../../hooks/user";
+import { useSignOut } from "../../hooks/user";
 
+import { useUser } from '../../apiCall/feature/user'
 const Navbar = () => {
   const { setColorMode } = useColorMode();
 
-  const user = useUser();
+  const user: any = useUser();
   const signOut = useSignOut();
 
   return (
