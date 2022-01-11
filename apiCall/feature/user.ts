@@ -15,6 +15,9 @@ export function useUser() {
     } catch (error) {
       return undefined;
     }
+  }, {
+    cacheTime: Infinity,
+    staleTime: 30_000,
   });
   return query.data;
 }
