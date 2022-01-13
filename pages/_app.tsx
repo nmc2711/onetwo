@@ -24,6 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <QueryClientProvider client={queryClient}>
           {/* Browser Tab 접근성 */}
           <Head>
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
             <link rel="icon" href="/icons/favicon.ico" />
           </Head>
 

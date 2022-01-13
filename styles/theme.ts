@@ -17,7 +17,7 @@ const theme = extendTheme({
   config,
   breakpoints,
   fonts: {
-    body: 'Inter, system-ui, sans-serif',
+    body: 'Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif',
   },
 });
 
