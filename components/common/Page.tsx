@@ -5,9 +5,8 @@
 import Head from 'next/head';
 import React, { useMemo } from 'react';
 import NavBar from './Navbar';
-import Title from './Title';
 
-import { Box } from "@chakra-ui/layout";
+import { Box, Text } from "@chakra-ui/layout";
 import { useColorMode } from '@chakra-ui/color-mode';
 
 interface PageProps {
@@ -35,7 +34,7 @@ const Page: React.FC<PageProps> = ({ title, children, }) => {
         <NavBar />
       </header>
       <main>
-        <Title>{title}</Title>
+        <Text color="gray.900">{title}</Text>
         {children}
       </main>
     </Box>
