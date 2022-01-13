@@ -16,7 +16,6 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = ({ title, children, }) => {
   const { colorMode } = useColorMode();
-  console.log(colorMode);
   const ThemeBG = useMemo(() => {
     switch (colorMode) {
       case 'dark':

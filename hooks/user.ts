@@ -11,7 +11,7 @@ export function useSignIn() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
-  }));
+  }, '정확한 계정 정보를 입력해 주세요.'));
 
   return {
     signIn: async (email: string, password: any) => {

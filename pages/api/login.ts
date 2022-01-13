@@ -17,7 +17,6 @@ const handler = async (req:any, res:any) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ identifier: email, password }),
     });
-    console.log('email', user)
     res.status(200)
     .setHeader('Set-Cookie', cookie.serialize('jwt', jwt, {
       path: '/api',
@@ -28,7 +27,6 @@ const handler = async (req:any, res:any) => {
       name: user.username,
     })
   } catch (err) {
-    console.log(err)
     res.status(401).end();
   }
 }
