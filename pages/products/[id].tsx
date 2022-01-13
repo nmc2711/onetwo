@@ -10,11 +10,8 @@ import { ApiError } from "../../lib/api";
 import Page from "../../components/common/Page";
 
 // toolkit
-import { useSelector, useDispatch } from 'react-redux';
 import { useAppDispatch, useAppSelector } from '../../toolkit/hooks';
 import { decrement, increment } from '../../features/counter';
-
-import { useUser } from "../../hooks/user";
 
 export async function getStaticPaths() {
   const products = await getProducts();
