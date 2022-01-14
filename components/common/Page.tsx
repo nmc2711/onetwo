@@ -34,7 +34,7 @@ const Page: React.FC<PageProps> = ({ title, children, }) => {
         <NavBar />
       </header>
       <main>
-        <Text color="gray.900">{title}</Text>
+        <Text color="dGray.900">{title}</Text>
         {children}
       </main>
     </Box>
