@@ -43,6 +43,7 @@ const theme = extendTheme({
       gradientPurple: '#8E5DDE',
       lightWhite: '#ffffff',
     },
+    dPrimary: ['#7BC600', '#7BC600', '#fff'],
   },
 });
 
