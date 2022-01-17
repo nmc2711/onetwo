@@ -32,6 +32,17 @@ const theme = extendTheme({
       100: ['rgba(34,34,34,0.02)', 'rgba(34,34,34,0.06)'],
       0: ['rgba(34,34,34,0)', 'rgba(34,34,34,0.03)'],
     },
+    dRed: {
+      500: ['#E12418', '#E12418'],
+    },
+    dBg: {
+      dark: ['#222222', '#222222'],
+      gradientRed: '#e83d3d',
+      gradientYellow: '#DBAA0C',
+      gradientBlue: '#09B5B5',
+      gradientPurple: '#8E5DDE',
+      lightWhite: '#ffffff',
+    },
   },
 });
 
