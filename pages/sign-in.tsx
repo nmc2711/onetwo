@@ -2,7 +2,7 @@
  * @title : 로그인 페이지
  */
 import { useRouter } from 'next/router';
-import React, { FormEventHandler, useState } from 'react';
+import React, { FormEventHandler, useState, useLayoutEffect } from 'react';
 import { useSignIn } from '../hooks/user';
 
 import Button from '../components/common/Button';
@@ -10,14 +10,17 @@ import Field from '../components/common/Field';
 import Input from '../components/common/Input';
 import Page from '../components/common/Page';
 
+import KakaoLogin from "react-kakao-login";
+
 function SigInPage() {
+
   const router = useRouter();
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const { signIn, signInLoading, signInError } = useSignIn();
-  
+
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
     const valid = await signIn(email, password);
@@ -42,6 +45,19 @@ function SigInPage() {
         <p className="text-blue-700">헛둘 회원님! 로그인중입니다..</p>
         : <Button type="submit">로그인</Button>}
       </form>
+
+
+      <KakaoLogin
+        token={'30653f7c73c422920b2f184e8e96e652'}
+        onSuccess={() => {console.log("로그인성공")}} // 성공 시 실행할 함수
+        onFail={(err) => {
+          console.log("로그인실패", err);
+        }}
+        onLogout={() => {
+          console.log("로그아웃");
+        }}
+      ></KakaoLogin>
+      
     </Page>
  );
 }
