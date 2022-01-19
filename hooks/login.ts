@@ -5,7 +5,7 @@ const USER_QUERY_KEY = 'user';
 const { Kakao }: any = typeof window !== "undefined" &&  window;
 
 export function kakaoLogin() {
-  const mutation = useMutation(({ accessToken }: any) => fetchJson('http://ec2-54-180-30-10.ap-northeast-2.compute.amazonaws.com:5510/api/v1/users/kakao-login', {
+  const mutation = useMutation(({ accessToken }: any) => fetchJson('/api/kakaoLogin', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ accessToken }),
