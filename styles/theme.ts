@@ -19,6 +19,15 @@ const theme = extendTheme({
   fonts: {
     body: 'Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif',
   },
+  fontSizes: {
+    xxxl: '28px',
+    xxl: '24px',
+    xl: '20px',
+    l: '18px',
+    m: '16px',
+    s: '14px',
+    xs: '12px',
+  },
   colors: {
     dGray: {
       900: ['#222222', 'rgba(34,34,34,0)'],
