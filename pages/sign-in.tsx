@@ -32,12 +32,12 @@ function SigInPage() {
   };
 
   const handleSubmitKako = async () => {
-    const valid = await signInKakao();
-    console.log(valid)
-    // if (valid) {
-    //   router.push('/');
-    // }
+    const valid: any = await signInKakao();
+    if (valid) {
+      router.push('/');
+    }
   };
+
   return (
     <Page title="헛둘 로그인">
       <form onSubmit={handleSubmit}>
@@ -55,10 +55,8 @@ function SigInPage() {
         <p className="text-blue-700">헛둘 회원님! 로그인중입니다..</p>
         : <Button type="submit">로그인</Button>}
       </form>
-
-
-      <button onClick={handleSubmitKako}>카카오 로그인</button>
       
+      <button onClick={handleSubmitKako}>카카오 로그인</button>
     </Page>
  );
 }

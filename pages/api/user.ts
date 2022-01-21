@@ -3,18 +3,18 @@ import { fetchJson } from "../../lib/api";
 import { baseApiUrl } from '../../enum/config';
 
 const handleUser = async(req:any, res:any) => {
-    const { jwt } = req.cookies;
+    const { jwt, idAuth } = req.cookies;
     if (!jwt) {
       res.status(401).end();
       return;
     }
     try {
-      const user = await fetchJson(`${baseApiUrl}/users/me`, {
+      const user = await fetchJson(`http://ec2-54-180-30-10.ap-northeast-2.compute.amazonaws.com:5510/api/v1/users/${idAuth}`, {
         headers: { 'Authorization': `Bearer ${jwt}` },
       });
       res.status(200).json({
-        id: user.id,
-        name: user.username,
+        id: user.result.id,
+        name: user.result.nickname,
       });
     } catch (err) {
       res.status(401).end();

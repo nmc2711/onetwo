@@ -18,8 +18,6 @@ export function kakaoLogin() {
       Kakao.Auth.login({
         success: async (authObj: any) => {
           try {
-            console.log(authObj);
-            
             const user = await mutation.mutateAsync({ accessToken: authObj.access_token });
             queryClient.setQueryData(USER_QUERY_KEY, user);
             return true;

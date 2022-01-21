@@ -21,7 +21,7 @@ const handler = async (req:any, res:any) => {
     .setHeader('Set-Cookie', cookie.serialize('jwt', result.token, {
       path: '/api',
       httpOnly: true,
-    }))
+    }), cookie.serialize('idAuth', result.user.id))
     return res.json({
       id: result.user.id,
       name: result.user.nickname,
