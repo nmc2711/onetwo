@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               {product.title}
             </h2>
             <span>
-              최소금액 {product.price}
+              최소금액(깃 테스트--) {product.price}
             </span>
           </Flex>
         </a>
