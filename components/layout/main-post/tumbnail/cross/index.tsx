@@ -7,13 +7,13 @@ import CrossSvg from '../../../public/images/tumbnail-cross.svg';
 
 
 interface Props {
-  img: string;
+  thumbnail: string;
 }
 
-function CrossThumbnail({ img } : Props) {
+function CrossThumbnail({ thumbnail } : Props) {
   return (
     <Wrap>
-      <Image src={img} alt="Beach" />
+      <Image src={thumbnail} alt="thumbnail" />
     </Wrap>
   )
 }

@@ -6,7 +6,7 @@ import type { NextPage } from "next";
 
 import { getProducts } from "../lib/products";
 
-import ProductCard from "../components/ProductCard";
+import MainPost from "../components/layout/main-post";
 import Page from "../components/common/Page";
 
 //style
@@ -24,8 +24,8 @@ const HomePage: NextPage = ({ products }: any) => {
     <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
       <FirstReviewBanner />
       <ResponsiveBox>
-        {products.map((product: any) => (
-          <ProductCard product={product} key={product.id}/>
+        {products.map((post: any) => (
+          <MainPost post={post} key={post.id}/>
         ))}
       </ResponsiveBox>
     </Page>
