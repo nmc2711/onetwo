@@ -3,7 +3,6 @@
  * @path : '/'
  */
 import type { NextPage } from "next";
-import { useInView } from 'react-intersection-observer';
 
 import { getProducts } from "../lib/products";
 
@@ -21,14 +20,10 @@ export async function getServerSideProps() {
 }
 
 const HomePage: NextPage = ({ products }: any) => {
-  const { ref, inView, entry } = useInView({
-    /* Optional options */
-    threshold: 0,
-  });
   return (
     <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
       <FirstReviewBanner />
-      <ResponsiveBox ref={ref}>
+      <ResponsiveBox>
         {products.map((product: any) => (
           <ProductCard product={product} key={product.id} />
         ))}

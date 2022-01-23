@@ -3,6 +3,7 @@
  */
 import type { NextPage } from "next";
 import { getProducts, getProduct } from "../../lib/products";
+import { useInView } from 'react-intersection-observer';
 
 // c
 import { ImageW100 } from '../../styles/customStyle';
@@ -45,9 +46,13 @@ const ProductPage: NextPage = ({ product }: any) => {
   // toolkit
   const dispatch = useAppDispatch();
   const { value } = useAppSelector((state) => state.counter);
+  const [ref, inView] = useInView({
+    threshold: 0,
+  })
+
   return (
     <Page title={product.title}>
-      <div className="flex flex-col lg:flex-row">
+      <div ref={ref} className="flex flex-col lg:flex-row">
         <div>
           {product.pictureUrl && <ImageW100 alt="상세 페이지 이미지" src={product.pictureUrl} h={360} />}
         </div>
