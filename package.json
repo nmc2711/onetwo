@@ -20,6 +20,7 @@
     "js-cookie": "^3.0.1",
     "mobile-detect": "^1.4.5",
     "next": "11.1.2",
+    "next-http-proxy-middleware": "^1.1.2",
     "next-redux-wrapper": "^7.0.5",
     "react": "17.0.2",
     "react-device-detect": "^2.1.2",
