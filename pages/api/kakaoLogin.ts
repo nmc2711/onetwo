@@ -1,6 +1,6 @@
 import cookie from 'cookie';
 
-import { fetchJson } from "../../lib/api";
+import { fetchJson } from "lib/api";
 
 const handler = async (req:any, res:any) => {
   if (req.method !== 'POST') {

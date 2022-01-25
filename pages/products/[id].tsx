@@ -2,16 +2,16 @@
  * @title : ProductPage - 음식점 디테일 페이지
  */
 import type { NextPage } from "next";
-import { getProducts, getProduct } from "../../lib/products";
+import { getProducts, getProduct } from "lib/products";
 
 // c
-import { ImageW100 } from '../../styles/customStyle';
-import { ApiError } from "../../lib/api";
-import Page from "../../components/common/Page";
+import { ImageW100 } from 'styles/customStyle';
+import { ApiError } from "lib/api";
+import Page from "components/common/Page";
 
 // toolkit
-import { useAppDispatch, useAppSelector } from '../../toolkit/hooks';
-import { decrement, increment } from '../../features/counter';
+import { useAppDispatch, useAppSelector } from 'toolkit/hooks';
+import { decrement, increment } from 'features/counter';
 
 export async function getStaticPaths() {
   const products = await getProducts();

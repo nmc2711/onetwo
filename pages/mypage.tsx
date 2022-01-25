@@ -2,7 +2,7 @@
  * @title : Page MyPage - 마이페이지
  */
 import type { NextPage } from "next";
-import Page from '../components/common/Page';
+import Page from 'components/common/Page';
 
 import Head from "next/head";
 

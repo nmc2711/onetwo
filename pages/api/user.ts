@@ -1,6 +1,6 @@
-import { fetchJson } from "../../lib/api";
+import { fetchJson } from "lib/api";
 
-import { baseApiUrl } from '../../enum/config';
+import { baseApiUrl } from 'enum/config';
 
 const handleUser = async(req:any, res:any) => {
     const { jwt, idAuth } = req.cookies;

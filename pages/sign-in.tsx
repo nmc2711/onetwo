@@ -3,15 +3,13 @@
  */
 import { useRouter } from 'next/router';
 import React, { FormEventHandler, useState, useLayoutEffect } from 'react';
-import { useSignIn } from '../hooks/user';
-import { kakaoLogin } from '../hooks/login';
+import { useSignIn } from 'hooks/user';
+import { kakaoLogin } from 'hooks/login';
 
-import Button from '../components/common/Button';
-import Field from '../components/common/Field';
-import Input from '../components/common/Input';
-import Page from '../components/common/Page';
-
-
+import Button from 'components/common/Button';
+import Field from 'components/common/Field';
+import Input from 'components/common/Input';
+import Page from 'components/common/Page';
 
 function SigInPage() {
 

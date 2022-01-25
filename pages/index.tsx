@@ -4,14 +4,14 @@
  */
 import type { NextPage } from "next";
 
-import { getProducts } from "../lib/products";
+import { getProducts } from "lib/products";
 
-import ProductCard from "../components/ProductCard";
-import Page from "../components/common/Page";
+import ProductCard from "components/ProductCard";
+import Page from "components/common/Page";
+import FirstReviewBanner from "components/common/AdBanner/review";
 
 //style
-import { ResponsiveBox } from '../styles/customStyle';
-import FirstReviewBanner from "../components/common/AdBanner/review";
+import { ResponsiveBox } from 'styles/customStyle';
 
 // SideEffect
 export async function getServerSideProps() {

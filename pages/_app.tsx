@@ -7,15 +7,17 @@ import type { AppProps } from "next/app";
 
 import { QueryClientProvider } from "react-query";
 import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
-import { queryClient } from '../apiCall/queryClient';
+import { queryClient } from 'apiCall/queryClient';
 
-import { wrapper } from '../toolkit/store';
+import { wrapper } from 'toolkit/store';
 
 import Head from 'next/head';
 
-import "../styles/globals.css";
-import theme from "../styles/theme";
+import "styles/globals.css";
+import theme from "styles/theme";
+
 const { Kakao }: any = typeof window !== "undefined" &&  window;
+
 function MyApp({ Component, pageProps }: AppProps) {
 
   useEffect(() => {
