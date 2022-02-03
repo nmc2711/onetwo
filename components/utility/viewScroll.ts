@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function viewScroll() {
   const [target, setTarget] = useState(null);
@@ -15,7 +15,7 @@ function viewScroll() {
     setItemLists((itemLists) => itemLists.concat(Items));
   };
 
-  async function onIntersect([entry], observer) {
+  async function onIntersect([entry]: any, observer: any) {
     if (entry.isIntersecting) {
       observer.unobserve(entry.target);
       await getMoreItem();
@@ -25,9 +25,7 @@ function viewScroll() {
 
   useEffect(() => {
     let observer: any;
-    console.log(1);
     if (target) {
-      console.log(2);
       observer = new IntersectionObserver(onIntersect, {
         threshold: 0.4,
       });
