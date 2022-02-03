@@ -1,23 +1,45 @@
-import { useRef, useEffect, useCallback } from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useRef, useState, useEffect } from 'react';
 
 function viewScroll() {
-  const _ref = useRef(null);
+  const [target, setTarget] = useState(null);
+  const [itemLists, setItemLists] = useState([1]);
 
-  const options = {
-    root: null,
-    rootMargin: '10px',
-    threshold: 0.5
-  }
-  const io = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      // entry와 observer 출력
-      console.log('entry:', entry);
-      console.log('observer:', observer);
-    })
-  }, options)
+  useEffect(() => {
+    console.log(itemLists);
+  }, [itemLists]);
+
+  async function getMoreItem() {
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+    let Items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    setItemLists((itemLists) => itemLists.concat(Items));
+  };
+
+  async function onIntersect([entry], observer) {
+    if (entry.isIntersecting) {
+      observer.unobserve(entry.target);
+      await getMoreItem();
+      observer.observe(entry.target);
+    }
+  };
+
+  useEffect(() => {
+    let observer: any;
+    console.log(1);
+    if (target) {
+      console.log(2);
+      observer = new IntersectionObserver(onIntersect, {
+        threshold: 0.4,
+      });
+      observer.observe(target);
+    }
+    return () => observer && observer.disconnect();
+  }, [target]);
 
   return {
-    _ref
+    target,
+    itemLists,
+    setTarget
   }
 }
 
