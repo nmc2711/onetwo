@@ -46,13 +46,11 @@ const ProductPage: NextPage = ({ product }: any) => {
   // toolkit
   const dispatch = useAppDispatch();
   const { value } = useAppSelector((state) => state.counter);
-  const [ref, inView] = useInView({
-    threshold: 0,
-  })
+
 
   return (
     <Page title={product.title}>
-      <div ref={ref} className="flex flex-col lg:flex-row">
+      <div className="flex flex-col lg:flex-row">
         <div>
           {product.pictureUrl && <ImageW100 alt="상세 페이지 이미지" src={product.pictureUrl} h={360} />}
         </div>
