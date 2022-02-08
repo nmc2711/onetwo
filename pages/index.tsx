@@ -14,6 +14,9 @@ import ChoiceTaste from "pageSlice/choiceTaste"
 //style
 import { ResponsiveBox } from 'styles/customStyle';
 
+// toolkit
+import { useAppSelector } from 'toolkit/hooks';
+
 // SideEffect
 export async function getServerSideProps() {
   const products = await getProducts();
@@ -21,7 +24,11 @@ export async function getServerSideProps() {
 }
 
 const HomePage: NextPage = ({ products }: any) => {
+  const { value } = useAppSelector((state) => state.choice);
+
+  console.log(value)
   return (
+    value ? 
     <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
       <FirstReviewBanner />
       <ResponsiveBox>
@@ -30,6 +37,8 @@ const HomePage: NextPage = ({ products }: any) => {
         ))}
       </ResponsiveBox>
     </Page>
+    :
+    <ChoiceTaste />
   );
 };
 export default HomePage;

@@ -24,6 +24,7 @@ const extendedColors = {
     gradientPurple: '#8E5DDE',
     lightWhite: '#ffffff',
   },
+  dPrimary: '#7BC600',
 };
 
 /** override chakra colors here */

@@ -2,14 +2,14 @@ import React from 'react'
 
 import { StepNavBox } from '../styled';
 
-import { Box, Text } from "@chakra-ui/layout";
+import { Text } from "@chakra-ui/layout";
 
 function StepNavigatorComponent() {
   return (
     <StepNavBox>
-      <Text color="dGray.900">1</Text> / <Text>6</Text>
+      <Text color="dGray.900" fontSize="s" fontWeight="bold">1</Text>
+      <Text color="dGray.600" fontSize="s" fontWeight="bold">&nbsp;/&nbsp;6</Text>
     </StepNavBox>
   )
 }
-
 export default StepNavigatorComponent

@@ -7,9 +7,11 @@ import {
 } from '@reduxjs/toolkit';
 import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 import { counterReducer } from '../features/counter';
+import { choiceReducer } from '../features/choice';
   
 const combinedReducer = combineReducers({
   counter: counterReducer,
+  choice: choiceReducer,
 });
   
 const reducer = (state: any, action: AnyAction) => {
