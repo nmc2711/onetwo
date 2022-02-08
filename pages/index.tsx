@@ -9,6 +9,7 @@ import { getProducts } from "lib/products";
 import ProductCard from "components/ProductCard";
 import Page from "components/common/Page";
 import FirstReviewBanner from "components/common/AdBanner/review";
+import ChoiceTaste from "pageSlice/choiceTaste"
 
 //style
 import { ResponsiveBox } from 'styles/customStyle';
@@ -20,15 +21,20 @@ export async function getServerSideProps() {
 }
 
 const HomePage: NextPage = ({ products }: any) => {
+  let flag = '123';
   return (
-    <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
-      <FirstReviewBanner />
-      <ResponsiveBox>
-        {products.map((product: any) => (
-          <ProductCard product={product} key={product.id}/>
-        ))}
-      </ResponsiveBox>
-    </Page>
+    <>
+      {flag === '123' ? 
+        <ChoiceTaste /> :
+        <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
+          <FirstReviewBanner />
+          <ResponsiveBox>
+            {products.map((product: any) => (
+              <ProductCard product={product} key={product.id}/>
+            ))}
+          </ResponsiveBox>
+        </Page>}
+    </>
   );
 };
 export default HomePage;
