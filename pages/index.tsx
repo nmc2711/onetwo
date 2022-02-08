@@ -21,20 +21,15 @@ export async function getServerSideProps() {
 }
 
 const HomePage: NextPage = ({ products }: any) => {
-  let flag = '123';
   return (
-    <>
-      {flag === '123' ? 
-        <ChoiceTaste /> :
-        <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
-          <FirstReviewBanner />
-          <ResponsiveBox>
-            {products.map((product: any) => (
-              <ProductCard product={product} key={product.id}/>
-            ))}
-          </ResponsiveBox>
-        </Page>}
-    </>
+    <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
+      <FirstReviewBanner />
+      <ResponsiveBox>
+        {products.map((product: any) => (
+          <ProductCard product={product} key={product.id}/>
+        ))}
+      </ResponsiveBox>
+    </Page>
   );
 };
 export default HomePage;
