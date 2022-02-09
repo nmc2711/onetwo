@@ -2,7 +2,7 @@
 * @title : sticky common header(nav)
 */
 import { useUser } from 'apiCall/feature/user';
-
+import { useRouter } from 'next/router';
 import Link from "next/link";
 import { Flex, Box } from "@chakra-ui/react";
 
@@ -11,9 +11,16 @@ import Image from 'next/image';
 import LogoImg from 'asset/logo/Logos.png';
 
 import { NavText } from './styled';
+import { kakaoLogin } from 'hooks/login';
 
 const HeaderComponent = () => {
   const user: any = useUser();
+
+  const { signInKakao  } = kakaoLogin();
+
+  const handleSubmitKako = async () => {
+    await signInKakao();
+  };
 
   return (
     <>
@@ -32,9 +39,7 @@ const HeaderComponent = () => {
               <NavText mr={0}>MyPage</NavText>
             </Link>
             :
-            <Link href="/sign-in">
-              <NavText mr={0}>Login</NavText>
-            </Link>
+            <NavText mr={0} onClick={handleSubmitKako}>Login</NavText>
           }
         </Flex>
       </Flex>

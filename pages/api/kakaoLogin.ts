@@ -1,5 +1,4 @@
 import cookie from 'cookie';
-
 import { fetchJson } from "lib/api";
 
 const handler = async (req: any, res: any) => {

@@ -12,7 +12,6 @@ import Input from 'components/common/Input';
 import Page from 'components/common/Page';
 
 function SigInPage() {
-
   const router = useRouter();
   
   const [email, setEmail] = useState('');
@@ -30,13 +29,12 @@ function SigInPage() {
   };
 
   const handleSubmitKako = async () => {
-    const res =  await signInKakao();
-    alert(res)
+    await signInKakao();
   };
 
   return (
     <Page title="헛둘 로그인">
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <Field label="이메일">
           <Input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
         </Field>
@@ -51,7 +49,7 @@ function SigInPage() {
         <p className="text-blue-700">헛둘 회원님! 로그인중입니다..</p>
         : <Button type="submit">로그인</Button>}
       </form>
-      
+       */}
       <button onClick={handleSubmitKako}>카카오 로그인</button>
     </Page>
  );
