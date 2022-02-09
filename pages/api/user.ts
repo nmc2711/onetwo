@@ -1,7 +1,7 @@
 import { fetchJson } from "lib/api";
 
 const handleUser = async(req:any, res:any) => {
-    const { jwt, idAuth } = req.cookies;
+    const { jwt, idAuth } = req.cookie;
 
     if (!jwt) {
       res.status(401).end();
