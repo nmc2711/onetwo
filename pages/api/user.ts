@@ -1,11 +1,14 @@
 import { fetchJson } from "lib/api";
 
 const handleUser = async(req:any, res:any) => {
-    const { jwt, idAuth } = req.cookies;
-    if (!jwt) {
+
+    if (!window.sessionStorage.getItem('idAuth')) {
       res.status(401).end();
       return;
     }
+
+    const idAuth = window.sessionStorage.getItem('idAuth');
+    const jwt = window.sessionStorage.getItem('jwt');
     try {
       const user = await fetchJson(`http://ec2-54-180-30-10.ap-northeast-2.compute.amazonaws.com:5510/api/v1/users/${idAuth}`, {
         headers: { 'Authorization': `Bearer ${jwt}` },
