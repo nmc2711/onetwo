@@ -9,8 +9,6 @@ const handler = async (req: any, res: any) => {
   const { accessToken } = req.body;
   
   try {
-    const expires = new Date()
-    expires.setDate(Date.now() + 1);
 
     const { result } = await fetchJson(`http://ec2-54-180-30-10.ap-northeast-2.compute.amazonaws.com:5510/api/v1/users/kakao-login`, {
       method: 'POST',
@@ -21,13 +19,13 @@ const handler = async (req: any, res: any) => {
     .setHeader('Set-Cookie', cookie.serialize('jwt', result.token, {
       path: '/api',
       httpOnly: true,
-      expires,
+      maxAge:3000,
     }))
     .setHeader('Set-Cookie', cookie.serialize('idAuth', result.user.id))
     return res.json({
       id: result.user.id,
       name: result.user.nickname,
-      expires,
+      maxAge:3000,
     })
   } catch (err) {
     res.status(401).end();
