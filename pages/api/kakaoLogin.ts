@@ -15,16 +15,16 @@ const handler = async (req: any, res: any) => {
       headers: { 'Content-Type': 'application/json;charset=UTF-8' },
       body: JSON.stringify({ accessToken }),
     });
+    
+    window.sessionStorage.setItem('jwt', result.token);
+    window.sessionStorage.setItem('idAuth', result.user.id);
+    
     res.status(200)
     .setHeader('Set-Cookie', cookie.serialize('jwt', result.token, {
       path: '/api',
       httpOnly: true,
     }))
     .setHeader('Set-Cookie', cookie.serialize('idAuth', result.user.id ))
-
-    window.sessionStorage.setItem('jwt', result.token);
-    window.sessionStorage.setItem('idAuth', result.user.id);
-
     return res.json({
       id: result.user.id,
       name: result.user.nickname,
