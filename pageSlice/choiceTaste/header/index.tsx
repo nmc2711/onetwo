@@ -4,7 +4,7 @@ import { Flex, Text, Box } from "@chakra-ui/react";
 
 import Image from 'next/image';
 
-import CrossThumbImg from 'asset/logo/Logos.png';
+import LogoImg from 'asset/logo/Logos.png';
 
 // toolkit
 import { useAppDispatch } from 'toolkit/hooks';
@@ -18,7 +18,7 @@ function ChoiceHeaderComponent() {
     <Flex justifyContent="center" alignItems="center">
       
       <Box width="70px" height="32px">
-        <Image src={CrossThumbImg} alt="초이스 셀렉트 로고이미지" />
+        <Image src={LogoImg} alt="초이스 셀렉트 로고이미지" />
       </Box>
 
       <Text ml="auto" fontSize="m" fontWeight="bold" onClick={() => dispatch(checker())}>나중에 할래요</Text>

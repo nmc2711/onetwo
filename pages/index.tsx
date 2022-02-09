@@ -3,8 +3,10 @@
  * @path : '/'
  */
 import type { NextPage } from "next";
-
 import { getProducts } from "lib/products";
+
+// toolkit
+import { useAppSelector } from 'toolkit/hooks';
 
 import ProductCard from "components/ProductCard";
 import Page from "components/common/Page";
@@ -13,9 +15,6 @@ import ChoiceTaste from "pageSlice/choiceTaste"
 
 //style
 import { ResponsiveBox } from 'styles/customStyle';
-
-// toolkit
-import { useAppSelector } from 'toolkit/hooks';
 
 // SideEffect
 export async function getServerSideProps() {
@@ -26,10 +25,9 @@ export async function getServerSideProps() {
 const HomePage: NextPage = ({ products }: any) => {
   const { value } = useAppSelector((state) => state.choice);
 
-  console.log(value)
   return (
     value ? 
-    <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
+    <Page title="All reviews are there Digging !">
       <FirstReviewBanner />
       <ResponsiveBox>
         {products.map((product: any) => (
@@ -42,6 +40,3 @@ const HomePage: NextPage = ({ products }: any) => {
   );
 };
 export default HomePage;
-
-// ** Description
-// Next JS의 Pre-Render 패턴 getStaticProps, getServerSideProps가 주로 쓰인다.

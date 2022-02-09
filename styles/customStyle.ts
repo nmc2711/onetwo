@@ -1,3 +1,6 @@
+/**
+* @title : 자주쓰는 공통 스타일 정의
+*/
 import { chakra, Flex, Image } from "@chakra-ui/react";
 
 // Flex Style의 반응형 박스

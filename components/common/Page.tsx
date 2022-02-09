@@ -5,12 +5,13 @@
 import Head from 'next/head';
 import React, { useMemo } from 'react';
 import NavBar from './Navbar';
+import HeaderComponent from './Header';
 
 import { Box, Text } from "@chakra-ui/layout";
 import { useColorMode } from '@chakra-ui/color-mode';
 
 interface PageProps {
-  title: string;
+  title?: string;
 }
 
 const Page: React.FC<PageProps> = ({ title, children, }) => {
@@ -30,11 +31,10 @@ const Page: React.FC<PageProps> = ({ title, children, }) => {
       <Head>
         <title>{title} - 헛둘페이지</title>
       </Head>
-      <header>
-        <NavBar />
-      </header>
+      {/* 헤더 */}
+      <HeaderComponent />
+
       <main>
-        <Text color="dGray.900">{title}</Text>
         {children}
       </main>
     </Box>

@@ -1,9 +1,13 @@
+/**
+* @title : sticky common header(nav)
+*/
 import { useColorMode } from "@chakra-ui/color-mode";
-import { Box } from "@chakra-ui/layout";
-import Link from "next/link";
-import { useSignOut } from "../../hooks/user";
+import { useUser } from 'apiCall/feature/user';
+import { useSignOut } from "hooks/user";
 
-import { useUser } from '../../apiCall/feature/user'
+import Link from "next/link";
+import { Box } from "@chakra-ui/layout";
+
 const Navbar = () => {
   const { setColorMode } = useColorMode();
 
