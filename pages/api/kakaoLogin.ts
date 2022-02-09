@@ -19,13 +19,14 @@ const handler = async (req: any, res: any) => {
     .setHeader('Set-Cookie', cookie.serialize('jwt', result.token, {
       path: '/api',
       httpOnly: true,
-      maxAge:3000,
+      maxAge: 30 * 24 * 60 * 60
     }))
-    .setHeader('Set-Cookie', cookie.serialize('idAuth', result.user.id))
+    .setHeader('Set-Cookie', cookie.serialize('idAuth', result.user.id, {
+      maxAge: 30 * 24 * 60 * 60
+    }))
     return res.json({
       id: result.user.id,
       name: result.user.nickname,
-      maxAge:3000,
     })
   } catch (err) {
     res.status(401).end();
