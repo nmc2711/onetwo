@@ -15,9 +15,7 @@ const handler = async (req: any, res: any) => {
       headers: { 'Content-Type': 'application/json;charset=UTF-8' },
       body: JSON.stringify({ accessToken }),
     });
-    
-    window.sessionStorage.setItem('jwt', result.token);
-    window.sessionStorage.setItem('idAuth', result.user.id);
+
     
     res.status(200)
     .setHeader('Set-Cookie', cookie.serialize('jwt', result.token, {
