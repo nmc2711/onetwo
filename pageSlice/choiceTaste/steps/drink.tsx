@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { isEmpty } from 'lodash';
 
-import { PriceT } from '../enum';
+import { DrinkT } from '../enum';
 
 import Image from 'next/image';
 import { Flex, Box } from "@chakra-ui/react";
@@ -32,20 +32,20 @@ function DrinkStepComponent() {
     if (isEmpty(selected)) {
       return; 
     } else {
-      dispatch(changeChoiceInfo({ price: selected }));
-      dispatch(changeSteps(3));
+      dispatch(changeChoiceInfo({ alchole: selected }));
+      dispatch(changeSteps(4));
     }
   }
   
   return (
     <>
-      <StepHeading>가격대를 신경 쓰시나요?</StepHeading>
+      <StepHeading>술을 좋아하시나요?</StepHeading>
       <Flex mt="32px" flexDirection="column">
-        {PriceT.map((item, idx) => {
+        {DrinkT.map((item, idx) => {
           const { code, name } = item;
           
           let correct = selected === code;
-          let isLast = PriceT.length - 1  === idx;
+          let isLast = DrinkT.length - 1  === idx;
 
           return (
             <StepItem 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { isEmpty } from 'lodash';
 
-import { PriceT } from '../enum';
+import { HealthyT } from '../enum';
 
 import Image from 'next/image';
 import { Flex, Box } from "@chakra-ui/react";
@@ -14,7 +14,7 @@ import Union from 'asset/union/Union.png';
 import { useAppDispatch } from 'toolkit/hooks';
 import { changeSteps, changeChoiceInfo } from 'features/choice';
 
-function DrinkStepComponent() {
+function HealthyStepComponent() {
   // toolkit
   const dispatch = useAppDispatch();
 
@@ -32,20 +32,20 @@ function DrinkStepComponent() {
     if (isEmpty(selected)) {
       return; 
     } else {
-      dispatch(changeChoiceInfo({ price: selected }));
-      dispatch(changeSteps(3));
+      dispatch(changeChoiceInfo({ health: selected }));
+      dispatch(changeSteps(5));
     }
   }
   
   return (
     <>
-      <StepHeading>가격대를 신경 쓰시나요?</StepHeading>
+      <StepHeading>건강식을 선호하시나요?</StepHeading>
       <Flex mt="32px" flexDirection="column">
-        {PriceT.map((item, idx) => {
+        {HealthyT.map((item, idx) => {
           const { code, name } = item;
           
           let correct = selected === code;
-          let isLast = PriceT.length - 1  === idx;
+          let isLast = HealthyT.length - 1  === idx;
 
           return (
             <StepItem 
@@ -68,4 +68,4 @@ function DrinkStepComponent() {
     </>
   )
 }
-export default DrinkStepComponent
+export default HealthyStepComponent

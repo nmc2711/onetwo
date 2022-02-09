@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { isEmpty } from 'lodash';
 
-import { PriceT } from '../enum';
+import { TimeT } from '../enum';
 
 import Image from 'next/image';
 import { Flex, Box } from "@chakra-ui/react";
@@ -12,9 +12,9 @@ import Union from 'asset/union/Union.png';
 
 // toolkit
 import { useAppDispatch } from 'toolkit/hooks';
-import { changeSteps, changeChoiceInfo } from 'features/choice';
+import { checker, changeChoiceInfo } from 'features/choice';
 
-function DrinkStepComponent() {
+function TimeStepComponent() {
   // toolkit
   const dispatch = useAppDispatch();
 
@@ -32,20 +32,20 @@ function DrinkStepComponent() {
     if (isEmpty(selected)) {
       return; 
     } else {
-      dispatch(changeChoiceInfo({ price: selected }));
-      dispatch(changeSteps(3));
+      dispatch(changeChoiceInfo({ time: selected }));
+      dispatch(checker())
     }
   }
   
   return (
     <>
-      <StepHeading>가격대를 신경 쓰시나요?</StepHeading>
+      <StepHeading>어느 시간대가 편하신가요?</StepHeading>
       <Flex mt="32px" flexDirection="column">
-        {PriceT.map((item, idx) => {
+        {TimeT.map((item, idx) => {
           const { code, name } = item;
           
           let correct = selected === code;
-          let isLast = PriceT.length - 1  === idx;
+          let isLast = TimeT.length - 1  === idx;
 
           return (
             <StepItem 
@@ -64,8 +64,8 @@ function DrinkStepComponent() {
           )
         })}
       </Flex>
-      <NextButton color={selected !== '' ? 'dPrimary' : 'dGray.500'} onClick={onClickNextStep}>다음</NextButton>
+      <NextButton color={selected !== '' ? 'dPrimary' : 'dGray.500'} onClick={onClickNextStep}>저장하기</NextButton>
     </>
   )
 }
-export default DrinkStepComponent
+export default TimeStepComponent
