@@ -30,10 +30,8 @@ function SigInPage() {
   };
 
   const handleSubmitKako = async () => {
-    const valid: any = await signInKakao();
-    if (valid) {
-      router.push('/');
-    }
+    const res =  await signInKakao();
+    alert(res)
   };
 
   return (
