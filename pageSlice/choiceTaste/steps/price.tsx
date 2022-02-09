@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { isEmpty } from 'lodash';
 
-import { GenderT } from '../enum';
+import { PriceT } from '../enum';
 
 import Image from 'next/image';
 import { Flex, Box } from "@chakra-ui/react";
@@ -14,7 +14,7 @@ import Union from 'asset/union/Union.png';
 import { useAppDispatch } from 'toolkit/hooks';
 import { changeSteps, changeChoiceInfo } from 'features/choice';
 
-function GenderStepComponent() {
+function PriceStepComponent() {
   // toolkit
   const dispatch = useAppDispatch();
 
@@ -32,32 +32,32 @@ function GenderStepComponent() {
     if (isEmpty(selected)) {
       return; 
     } else {
-      dispatch(changeChoiceInfo({ gender: selected }));
-      dispatch(changeSteps(2));
+      dispatch(changeChoiceInfo({ price: selected }));
+      dispatch(changeSteps(3));
     }
   }
   
   return (
     <>
-      <StepHeading>성별을 알려주세요</StepHeading>
+      <StepHeading>가격대를 신경 쓰시나요?</StepHeading>
       <Flex mt="32px" flexDirection="column">
-        {GenderT.map((item, idx) => {
+        {PriceT.map((item, idx) => {
           const { code, name } = item;
-
+          
           let correct = selected === code;
-          let isLast = GenderT.length - 1  === idx;
+          let isLast = PriceT.length - 1  === idx;
 
           return (
             <StepItem 
               key={code} 
               mb={isLast? '0' : '18px'} 
-              height={selected === '' ? '136px' : correct ? '208px' : '100px'}
+              h={'212px'}
               color={correct ? '#fff' : 'dGray.900'}
               backgroundColor={correct ? 'dGray.900' : '#fff'}
               onClick={() => toggle(code)}
             >
               <Box>
-                {correct && <Image src={Union} alt="초이스 셀렉트 로고이미지" width="14px" height="8px" />}
+                {correct && <Image src={Union} alt="초이스 셀렉트 로고이미지" width="14px" height="8px"/>}
               </Box>
               {name}
             </StepItem>
@@ -68,4 +68,4 @@ function GenderStepComponent() {
     </>
   )
 }
-export default GenderStepComponent
+export default PriceStepComponent
