@@ -7,11 +7,11 @@ import ArrowWhiteImg from 'asset/union/arrow_white_s.png';
 import SmileIcon from 'asset/union/smile_icon.png';
 import ForkIcon from 'asset/union/fork_knife_s.png';
 
-function FirstReviewBanner() {
+function HeaderReviewBanner() {
   return (
-    <Flex bg="dPrimary" height="104px" m="18px 20px 40px" p="20px 24px" justify="center" borderRadius="12px"  flexDirection="column">
+    <Flex bg="dPrimary" height="104px" m="18px 20px 40px" p="20px 24px" justify="center" borderRadius="12px" flexDirection="column">
       <Flex alignItems="center" h="28px">
-         <Text h="28px" backgroundColor="#fff" borderRadius="38px" p="2px 14px" fontSize="s" fontWeight="bold">필독</Text>
+         <Text h="28px" backgroundColor="#fff" borderRadius="38px" p="2px 14px" fontSize="s" fontWeight="bold" lineHeight="24px">필독</Text>
          <Box w="20px" h="20px" ml="10px">
           <Image src={SmileIcon} alt="스마일 이미지" />
         </Box>
@@ -30,4 +30,4 @@ function FirstReviewBanner() {
   )
 }
 
-export default FirstReviewBanner;
+export default HeaderReviewBanner;

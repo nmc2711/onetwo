@@ -10,7 +10,8 @@ import { useAppSelector } from 'toolkit/hooks';
 
 import ProductCard from "components/ProductCard";
 import Page from "components/common/Page";
-import FirstReviewBanner from "components/common/AdBanner/review";
+import FirstReviewBanner from "components/common/AdBanner";
+import ScrollReviewBanner from "components/common/AdBanner/review2";
 import ChoiceTaste from "pageSlice/choiceTaste"
 
 //style
