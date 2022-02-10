@@ -12,7 +12,11 @@ import LogoImg from 'asset/logo/Logos.png';
 import { NavText, StickyHeader } from './styled';
 import { kakaoLogin } from 'hooks/login';
 
+import { useColorMode } from "@chakra-ui/color-mode";
+
 const HeaderComponent = () => {
+  const { setColorMode, colorMode } = useColorMode();
+
   const user: any = useUser();
 
   const { signInKakao  } = kakaoLogin();
@@ -20,7 +24,13 @@ const HeaderComponent = () => {
   const handleSubmitKako = async () => {
     await signInKakao();
   };
-
+  const toggleMode = () => {
+    if (colorMode === 'dark') {
+      setColorMode('light');
+    } else {
+      setColorMode('dark');
+    }
+  }
   return (
     <>
       <StickyHeader>
@@ -31,6 +41,7 @@ const HeaderComponent = () => {
         </Box>
 
         <Flex ml="auto" flexDirection="row">
+          <NavText onClick={toggleMode}>{colorMode === 'dark' ? 'Dark' : 'Light'}</NavText>
           <NavText>Filter</NavText>
           {user ? 
             <Link href="/mypage">
