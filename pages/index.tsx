@@ -10,8 +10,8 @@ import { useAppSelector } from 'toolkit/hooks';
 
 import ProductCard from "components/ProductCard";
 import Page from "components/common/Page";
-import FirstReviewBanner from "components/common/AdBanner";
-import ScrollReviewBanner from "components/common/AdBanner/review2";
+import Banner from "components/common/AdBanner";
+
 import ChoiceTaste from "pageSlice/choiceTaste"
 
 //style
@@ -29,7 +29,7 @@ const HomePage: NextPage = ({ products }: any) => {
   return (
     value ? 
     <Page title="All reviews are there Digging !">
-      <FirstReviewBanner />
+      <Banner />
       <ResponsiveBox>
         {products.map((product: any) => (
           <ProductCard product={product} key={product.id}/>
