@@ -39,7 +39,8 @@ export const TextBox = styled(Flex)`
   position: relative;
   display: -webkit-box;
   -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
+  background: #FFF;
    overflow: hidden;
     &:after {
       content: "";
@@ -48,7 +49,7 @@ export const TextBox = styled(Flex)`
       width: 100%;
       height: 55%;
       bottom: 0;
-      background: -webkit-linear-gradient(transparent, #FFF) left repeat;
-      background: linear-gradient(transparent, #FFF) left repeat; 
+      background: linear-gradient(transparent, #FFF) left repeat;
+      background: -webkit-linear-gradient(rgba(255, 255, 255, 0), #FFF) left repeat;
     }
 `;
