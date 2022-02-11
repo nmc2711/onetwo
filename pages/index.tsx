@@ -12,7 +12,8 @@ import ProductCard from "components/ProductCard";
 import Page from "components/common/Page";
 import Banner from "components/common/AdBanner";
 
-import ChoiceTaste from "pageSlice/choiceTaste"
+import ChoiceTaste from "pageSlice/choiceTaste";
+import ShopReviews from 'pageSlice/shopReviewList';
 
 //style
 import { ResponsiveBox } from 'styles/customStyle';
@@ -24,6 +25,7 @@ export async function getServerSideProps() {
 }
 
 const HomePage: NextPage = ({ products }: any) => {
+  console.log(products)
   const { value } = useAppSelector((state) => state.choice);
 
   return (
@@ -31,9 +33,16 @@ const HomePage: NextPage = ({ products }: any) => {
     <Page title="All reviews are there Digging !">
       <Banner />
       <ResponsiveBox>
-        {products.map((product: any) => (
+        <ShopReviews />
+        <ShopReviews />
+        <ShopReviews />
+        <ShopReviews />
+        <ShopReviews />
+        <ShopReviews />
+        
+        {/* {products.map((product: any) => (
           <ProductCard product={product} key={product.id}/>
-        ))}
+        ))} */}
       </ResponsiveBox>
     </Page>
     :

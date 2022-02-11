@@ -11,7 +11,6 @@ const ResponsiveBox = chakra(Flex, {
       lg: 'row',
     },
     justifyContent: 'center',
-    padding: '0 20px',
   },
 });
 

@@ -7,7 +7,7 @@ import ArrowWhiteImg from 'asset/union/arrow_white_s.png';
 
 function ScrollReviewBanner() {
   return (
-    <Flex bg="dPrimary" height="100px" m="0px 20px" p="16px" borderRadius="12px" flexDirection="column"  position="fixed" bottom="-20px" w="calc(100% - 40px)" transition= 'bottom 1s linear' >
+    <Flex bg="dPrimary" height="100px" m="0px 20px" p="16px" borderRadius="12px" flexDirection="column"  position="fixed" bottom="-20px" w="calc(100% - 40px)" transition= 'bottom 1s linear' zIndex="999">
       <Flex alignItems="center" >
         <Text h="28px" backgroundColor="#fff" borderRadius="38px" p="2px 14px" fontSize="s" fontWeight="bold" lineHeight="24px" mr="8px">필독</Text> 
 

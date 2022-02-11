@@ -18,5 +18,6 @@ export const StickyHeader = chakra(Flex, {
     backdropFilter: 'blur(15px)',
     position: 'sticky',
     top: '0px',
+    zIndex: '9999',
   },
 });
