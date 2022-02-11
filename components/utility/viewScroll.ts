@@ -27,6 +27,7 @@ function viewScroll() {
     let observer: any;
     if (target) {
       observer = new IntersectionObserver(onIntersect, {
+        rootMargin: '10px',
         threshold: 0.4,
       });
       observer.observe(target);
@@ -35,7 +36,6 @@ function viewScroll() {
   }, [target]);
 
   return {
-    target,
     itemLists,
     setTarget
   }

@@ -3,7 +3,6 @@
  * @path : '/'
  */
 import type { NextPage } from "next";
-import { useState, useRef, useEffect } from 'react';
 
 import { getProducts } from "../lib/products";
 
@@ -23,7 +22,7 @@ export async function getServerSideProps() {
 }
 
 const HomePage: NextPage = ({ products }: any) => {
-  const { target, itemLists, setTarget } = viewScroll();
+  const { itemLists, setTarget } = viewScroll();
 
   return (
     <Page title="내 푸드메이트는 어디에 있을까? 헛둘!">
