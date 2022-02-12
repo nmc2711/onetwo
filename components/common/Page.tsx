@@ -10,6 +10,8 @@ import HeaderComponent from './Header';
 import { Box, Text } from "@chakra-ui/layout";
 import { useColorMode } from '@chakra-ui/color-mode';
 
+import useScroll from '../utility/scroll';
+
 interface PageProps {
   title?: string;
 }
@@ -25,6 +27,8 @@ const Page: React.FC<PageProps> = ({ title, children, }) => {
         return 'rgba(179, 44, 243, 0.85)';
     }
   },[colorMode]);
+
+  useScroll();
 
   return (
     <Box bg={{ sm: ThemeBG, lg: ThemeBG }}>

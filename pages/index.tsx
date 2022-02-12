@@ -17,7 +17,9 @@ import ShopReviews from 'pageSlice/shopReviewList';
 //style
 import { ResponsiveBox } from 'styles/customStyle';
 
-import { REVIEWS_TYPE, RESULT_IN_LIST } from '../types/reviewList'; 
+import { REVIEWS_TYPE, RESULT_IN_LIST } from '../types/reviewList';
+
+import useScroll from '../components/utility/scroll';
 
 interface ReviewProps {
   products: REVIEWS_TYPE;
@@ -31,24 +33,27 @@ export const getServerSideProps: GetServerSideProps<ReviewProps> = async () => {
 
 const HomePage: React.FC<ReviewProps> = ({ products }) => {
   const { result } = products;
-  const { value } = useAppSelector((state) => state.choice);
+  const { value } = useAppSelector((state: any) => state.choice);
+  const { ref } = useScroll(result);
 
   return (
-    value ? 
-    <Page title="All reviews are there Digging !">
-      <Banner />
-      <ResponsiveBox>
-        {result && result.list.map((item: RESULT_IN_LIST, idx: number) => {
-          return (
-            <div key={idx + '리뷰 인덱스'}>
-              <ShopReviews item={item} />
-            </div>
-          )
-        })}
-      </ResponsiveBox>
-    </Page>
-    :
-    <ChoiceTaste />
+    value ?
+      <Page title="All reviews are there Digging !">
+        <Banner />
+        <ResponsiveBox>
+          {result && result.list.map((item: RESULT_IN_LIST, idx: number) => {
+            return (
+              <>
+                <div className="gg" key={idx + '리뷰 인덱스'} ref={ref}>
+                  <ShopReviews item={item} />
+                </div>
+              </>
+            )
+          })}
+        </ResponsiveBox>
+      </Page>
+      :
+      <ChoiceTaste />
   );
 };
 export default HomePage;
