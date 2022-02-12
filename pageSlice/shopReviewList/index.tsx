@@ -14,12 +14,13 @@ interface ShopReviewProps {
 }
 
 const ShopReviewComponent: React.FC<ShopReviewProps> = ({ item }) => {
+  console.log(item)
   const { user, review } = item;
 
   return (
     <>
-      <SubtitleComponent />
-      <ReviewtitleComponent />
+      <SubtitleComponent review={review} />
+      <ReviewtitleComponent review={review} />
       <DeatilComponent user={user} review={review} />
     </>
   )

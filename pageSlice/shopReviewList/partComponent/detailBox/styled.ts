@@ -31,10 +31,12 @@ export const PhotoAreaBox = styled(Flex)`
 export const InnerBox = styled(Flex)`
   transform: scaleY(-1);
 
-  mask: linear-gradient(rgba(255, 255, 255, 0) 0.1%, #FFFFFF 24%);
+  mask: linear-gradient(rgba(255, 255, 255, 0) 0.1%, #FFFFFF 50%);
 `;
 
 export const TextBox = styled(Flex)`
+  align-self: flex-start;
+  min-height: 60px;
   margin: 24px 0 28px 0;
   position: relative;
   display: -webkit-box;

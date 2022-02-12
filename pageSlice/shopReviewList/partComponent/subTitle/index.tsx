@@ -1,12 +1,16 @@
 import React from 'react';
-import { subTitleCaptions } from '../../enum';
 
 import { SubTitleBox, SubText } from './styled';
 
-function SubtitleComponent() {
+import { LIST_IN_REVIEW } from 'types/reviewList';
+interface SubtitleProps {
+  review: LIST_IN_REVIEW;
+}
+
+const SubtitleComponent: React.FC<SubtitleProps> = ({ review }) => {
   return (
     <SubTitleBox>
-      <SubText>{subTitleCaptions[0]}</SubText>
+      <SubText>{review.tags[0]}</SubText>
     </SubTitleBox>
   )
 }

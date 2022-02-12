@@ -1,5 +1,6 @@
 import React from 'react';
-import { subTitleCaptions } from '../../enum';
+
+import { LIST_IN_REVIEW } from 'types/reviewList';
 
 import { ReviewTitleBox, ReviewText } from './styled';
 import { chakra, Flex, Text, Box } from "@chakra-ui/react";
@@ -7,10 +8,14 @@ import Image from 'next/image';
 
 import ArrowImg from 'asset/union/dark-arrow-m.png';
 
-function ReviewtitleComponent() {
+interface ReviewTitleProps {
+  review: LIST_IN_REVIEW;
+}
+
+const ReviewtitleComponent: React.FC<ReviewTitleProps> = ({ review }) => {
   return (
     <ReviewTitleBox>
-      <ReviewText>에스프레소바를 가고싶지만 가고싶지만 시간이 없어
+      <ReviewText>{review.title}
 
       <Flex alignItem="center" display="inline-flex" float="right">
         <Box width="32px" height="32px">

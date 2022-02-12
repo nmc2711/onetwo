@@ -11,6 +11,7 @@ export const ReviewTitleBox = styled(Flex)`
 
 export const ReviewText = chakra(Text, {
   baseStyle: {
+    width: '100%',
     color: 'dGray.900',
     fontWeight: '800',
     fontSize: 'xxxl',
