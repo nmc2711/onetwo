@@ -5,8 +5,6 @@ function viewScroll() {
   const [target, setTarget] = useState(null);
   const [itemLists, setItemLists] = useState([1]);
 
-  console.log("@")
-
   async function getMoreItem() {
     await new Promise((resolve) => setTimeout(resolve, 1500));
     let Items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
