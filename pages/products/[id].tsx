@@ -25,29 +25,29 @@ import { decrement, increment } from 'features/counter';
 //   };
 // }
 
-export async function getStaticProps({ params: { id } }: any) {
-  try {
-    const product = await getProduct(id);
-    return {
-      props: { product },
-      revalidate: 30,
-    };
-  } catch (err) {
-    if (err instanceof ApiError && err.status === 404) {
-      return { notFound: true };
-    }
-    throw err;
-  }
+// export async function getStaticProps({ params: { id } }: any) {
+//   try {
+//     const product = await getProduct(id);
+//     return {
+//       props: { product },
+//       revalidate: 30,
+//     };
+//   } catch (err) {
+//     if (err instanceof ApiError && err.status === 404) {
+//       return { notFound: true };
+//     }
+//     throw err;
+//   }
 
-}
+// }
 
-const ProductPage: NextPage = ({ product }: any) => {
+const ProductPage: NextPage = () => {
   // toolkit
   const dispatch = useAppDispatch();
   const { value } = useAppSelector((state) => state.counter);
   return (
-    <Page title={product.title}>
-      <div className="flex flex-col lg:flex-row">
+    <Page title="리뷰 상세입니다">
+      {/* <div className="flex flex-col lg:flex-row">
         <div>
           {product.pictureUrl && <ImageW100 alt="상세 페이지 이미지" src={product.pictureUrl} h={360} />}
         </div>
@@ -61,7 +61,8 @@ const ProductPage: NextPage = ({ product }: any) => {
           <button onClick={() => dispatch(decrement())}>감소</button>
           <button onClick={() => dispatch(increment())}>증가</button>
         </div>
-      </div>
+      </div> */}
+      상세 페이지 작업예정
     </Page>
   );
 }
