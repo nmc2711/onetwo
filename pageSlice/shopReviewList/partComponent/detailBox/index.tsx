@@ -5,11 +5,13 @@ import { DetailWrap } from './styled';
 import UserAreaComponent from './userArea';
 import PhotoAreaComponent from './photoArea';
 
-function DeatilBoxComponent() {
+import { USERTYPE } from '../../type';
+
+function DeatilBoxComponent({ user, review } : any) {
   return (
     <DetailWrap>
-      <UserAreaComponent />
-      <PhotoAreaComponent />
+      <UserAreaComponent user={user}/>
+      <PhotoAreaComponent review={review} />
     </DetailWrap>
   )
 }

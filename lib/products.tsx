@@ -8,9 +8,9 @@ export async function getProduct(id: string): Promise<Product> {
   return stripProduct(product);
 }
 
-export async function getProducts(): Promise<Product[]> {
-  const products = await fetchJson(`${baseApiUrl}/products`);
-  return products.map(stripProduct);
+export async function getProducts() {
+  const products = await fetchJson(`http://ec2-54-180-30-10.ap-northeast-2.compute.amazonaws.com:5510/api/v1/reviews?tags=NO_KIDS_ZONE&tags=CHEAP&page=1&limit=5&lastId=`);
+  return products;
 }
 
 function stripProduct(product: any): Product {

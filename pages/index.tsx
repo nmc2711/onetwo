@@ -8,7 +8,6 @@ import { getProducts } from "lib/products";
 // toolkit
 import { useAppSelector } from 'toolkit/hooks';
 
-import ProductCard from "components/ProductCard";
 import Page from "components/common/Page";
 import Banner from "components/common/AdBanner";
 
@@ -25,7 +24,7 @@ export async function getServerSideProps() {
 }
 
 const HomePage: NextPage = ({ products }: any) => {
-  console.log(products)
+  const { result } = products;
   const { value } = useAppSelector((state) => state.choice);
 
   return (
@@ -33,16 +32,13 @@ const HomePage: NextPage = ({ products }: any) => {
     <Page title="All reviews are there Digging !">
       <Banner />
       <ResponsiveBox>
-        <ShopReviews />
-        <ShopReviews />
-        <ShopReviews />
-        <ShopReviews />
-        <ShopReviews />
-        <ShopReviews />
-        
-        {/* {products.map((product: any) => (
-          <ProductCard product={product} key={product.id}/>
-        ))} */}
+        {result && result.list.map((item: any, idx: number) => {
+          return (
+            <div key={idx}>
+              <ShopReviews item={item} />
+            </div>
+          )
+        })}
       </ResponsiveBox>
     </Page>
     :

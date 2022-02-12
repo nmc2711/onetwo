@@ -3,11 +3,12 @@ import { PhotoAreaBox, InnerBox, TextBox } from './styled';
 import { chakra, Flex, Text, Box } from "@chakra-ui/react";
 import EllipePoly from '../../poly/ellipe'
 
-function PhotoAreaComponent() {
+function PhotoAreaComponent({ review }: any) {
+  const BG = review.images[0];
   return (
     <PhotoAreaBox>
       <InnerBox>
-        <EllipePoly />
+        <EllipePoly imageUrl={BG} />
       </InnerBox>
       <TextBox>
       
