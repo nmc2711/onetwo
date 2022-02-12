@@ -13,17 +13,17 @@ import Page from "components/common/Page";
 import { useAppDispatch, useAppSelector } from 'toolkit/hooks';
 import { decrement, increment } from 'features/counter';
 
-export async function getStaticPaths() {
-  const products = await getProducts();
+// export async function getStaticPaths() {
+//   const products = await getProducts();
 
-  return {
-    paths: products.map((product: any) => ({
-      params: { id: product.id.toString() },
-    })),
-    fallback: 'blocking',
-    // 새 요청
-  };
-}
+//   return {
+//     paths: products.map((product: any) => ({
+//       params: { id: product.id.toString() },
+//     })),
+//     fallback: 'blocking',
+//     // 새 요청
+//   };
+// }
 
 export async function getStaticProps({ params: { id } }: any) {
   try {
