@@ -5,9 +5,17 @@ function viewScroll() {
   const [target, setTarget] = useState(null);
   const [itemLists, setItemLists] = useState([1]);
 
-  useEffect(() => {
-    console.log(itemLists);
-  }, [itemLists]);
+  const options = {
+    root: null,
+    rootMargin: '10px',
+    threshold: 0.5
+  }
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      console.log('entry:', entry);
+      console.log('observer:', observer);
+    })
+  }, options)
 
   async function getMoreItem() {
     await new Promise((resolve) => setTimeout(resolve, 1500));
