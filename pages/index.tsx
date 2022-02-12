@@ -2,8 +2,8 @@
  * @title : 메인페이지
  * @path : '/'
  */
-import type { NextPage } from "next";
 import { getProducts } from "lib/products";
+import { GetServerSideProps } from 'next';
 
 // toolkit
 import { useAppSelector } from 'toolkit/hooks';
@@ -17,13 +17,19 @@ import ShopReviews from 'pageSlice/shopReviewList';
 //style
 import { ResponsiveBox } from 'styles/customStyle';
 
+import { REVIEWS_TYPE, RESULT_IN_LIST } from '../types/reviewList'; 
+
+interface ReviewProps {
+  products: REVIEWS_TYPE;
+}
+
 // SideEffect
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps<ReviewProps> = async () => {
   const products = await getProducts();
   return { props: { products, revalidate: 5 * 60 } };
 }
 
-const HomePage: NextPage = ({ products }: any) => {
+const HomePage: React.FC<ReviewProps> = ({ products }) => {
   const { result } = products;
   const { value } = useAppSelector((state) => state.choice);
 
@@ -32,9 +38,9 @@ const HomePage: NextPage = ({ products }: any) => {
     <Page title="All reviews are there Digging !">
       <Banner />
       <ResponsiveBox>
-        {result && result.list.map((item: any, idx: number) => {
+        {result && result.list.map((item: RESULT_IN_LIST, idx: number) => {
           return (
-            <div key={idx}>
+            <div key={idx + '리뷰 인덱스'}>
               <ShopReviews item={item} />
             </div>
           )

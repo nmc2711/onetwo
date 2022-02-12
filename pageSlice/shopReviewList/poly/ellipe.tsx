@@ -1,5 +1,12 @@
-function EllipePoly(imageUrl: any) {
+/**
+ * @title : custom polycon ellipe 
+ */
 
+export type ImageType = {
+  imageUrl: string
+};
+
+function EllipePoly(imageUrl: ImageType) {
   return (
     <svg width="322px" height="322px">
 
@@ -21,5 +28,4 @@ function EllipePoly(imageUrl: any) {
   </svg>
   )
 }
-
 export default EllipePoly

@@ -1,14 +1,22 @@
 import React from 'react';
-import { PhotoAreaBox, InnerBox, TextBox } from './styled';
-import { chakra, Flex, Text, Box } from "@chakra-ui/react";
-import EllipePoly from '../../poly/ellipe'
 
-function PhotoAreaComponent({ review }: any) {
-  const BG = review.images[0];
+import { LIST_IN_REVIEW } from 'types/reviewList';
+
+import { chakra, Flex, Text, Box } from "@chakra-ui/react";
+import EllipePoly from '../../../poly/ellipe'
+
+import { PhotoAreaBox, InnerBox, TextBox } from '../styled';
+
+interface PhotoAreaProps {
+  review: LIST_IN_REVIEW;
+}
+
+const PhotoAreaComponent: React.FC<PhotoAreaProps> = ({ review }) => {
+  const reviewBG = review.images[0];
   return (
     <PhotoAreaBox>
       <InnerBox>
-        <EllipePoly imageUrl={BG} />
+        <EllipePoly imageUrl={reviewBG} />
       </InnerBox>
       <TextBox>
       

@@ -1,13 +1,17 @@
 import React from 'react';
 
+import { LIST_IN_REVIEW, LIST_IN_USER } from 'types/reviewList';
+
+import UserAreaComponent from './slice/userArea';
+import PhotoAreaComponent from './slice/photoArea';
+
 import { DetailWrap } from './styled';
+interface DeatilBoxCProps {
+  user: LIST_IN_USER;
+  review : LIST_IN_REVIEW
+}
 
-import UserAreaComponent from './userArea';
-import PhotoAreaComponent from './photoArea';
-
-import { USERTYPE } from '../../type';
-
-function DeatilBoxComponent({ user, review } : any) {
+const DeatilBoxComponent: React.FC<DeatilBoxCProps> = ({ user, review }) => {
   return (
     <DetailWrap>
       <UserAreaComponent user={user}/>
@@ -15,5 +19,4 @@ function DeatilBoxComponent({ user, review } : any) {
     </DetailWrap>
   )
 }
-
 export default DeatilBoxComponent

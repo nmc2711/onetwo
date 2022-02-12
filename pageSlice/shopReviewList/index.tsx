@@ -1,18 +1,27 @@
+/**
+ * @title : 리뷰리스트 인덱스
+ */
 import React from 'react';
+
+import { RESULT_IN_LIST } from 'types/reviewList'; 
+
 import SubtitleComponent from './partComponent/subTitle';
 import ReviewtitleComponent from './partComponent/reviewTitle';
 import DeatilComponent from './partComponent/detailBox';
-import { USERTYPE } from './type';
 
-function ShopReviewComponent({ item }: any) {
-  console.log(item)
+interface ShopReviewProps {
+  item: RESULT_IN_LIST;
+}
+
+const ShopReviewComponent: React.FC<ShopReviewProps> = ({ item }) => {
   const { user, review } = item;
+
   return (
-    <div>
+    <>
       <SubtitleComponent />
       <ReviewtitleComponent />
       <DeatilComponent user={user} review={review} />
-    </div>
+    </>
   )
 }
 export default ShopReviewComponent

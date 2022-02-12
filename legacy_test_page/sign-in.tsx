@@ -1,5 +1,6 @@
 /**
- * @title : 로그인 페이지
+ * @title : Strap연동 기존의 레거시 로그인 페이지
+ * @purpose : 기본 로그인 연동에 관하여 참고할 수도 있어 남겨둠
  */
 import { useRouter } from 'next/router';
 import React, { FormEventHandler, useState, useLayoutEffect } from 'react';
@@ -50,7 +51,7 @@ function SigInPage() {
         : <Button type="submit">로그인</Button>}
       </form>
        */}
-      <button onClick={handleSubmitKako}>카카오 로그인</button>
+      {/* <button onClick={handleSubmitKako}>카카오 로그인</button> */}
     </Page>
  );
 }

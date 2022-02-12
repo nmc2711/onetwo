@@ -1,6 +1,6 @@
 import { fetchJson } from './api';
 
-import { Product } from '../@types/product'; //이걸로 바꿔야 할듯
+import { Product } from '../types/product'; //이걸로 바꿔야 할듯
 import { baseApiUrl } from '../enum/config';
 
 export async function getProduct(id: string): Promise<Product> {
