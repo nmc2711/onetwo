@@ -10,18 +10,19 @@ import ArrowImg from 'asset/union/dark-arrow-m.png';
 
 interface ReviewTitleProps {
   review: LIST_IN_REVIEW;
+  flexibleSticky?: boolean;
 }
 
-const ReviewtitleComponent: React.FC<ReviewTitleProps> = ({ review }) => {
+const ReviewtitleComponent: React.FC<ReviewTitleProps> = ({ review, flexibleSticky }) => {
   return (
     <ReviewTitleBox>
       <ReviewText>{review.title}
-
-      <Flex alignItem="center" display="inline-flex" float="right">
-        <Box width="32px" height="32px">
-          <Image src={ArrowImg} alt="초이스 셀렉트 로고이미지"/>
-        </Box>
-      </Flex>
+      {!flexibleSticky && 
+        <Flex alignItem="center" display="inline-flex" float="right">
+          <Box width="32px" height="32px">
+            <Image src={ArrowImg} alt="초이스 셀렉트 로고이미지"/>
+          </Box>
+        </Flex>}
 
       </ReviewText>
     </ReviewTitleBox>

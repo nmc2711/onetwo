@@ -4,8 +4,6 @@ import { chakra, Flex, Text, Box } from "@chakra-ui/react";
 
 export const DetailWrap = styled(Flex)`
   flex-direction: column;
-  margin-top: 32px;
-  border-top: 1px solid rgba(34, 34, 34, 0.08);
 `;
 
 export const SubText = chakra(Text, {
