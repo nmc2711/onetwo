@@ -18,7 +18,7 @@ const DeatilBoxComponent: React.FC<DeatilBoxCProps> = ({ user, review, setConten
 
   const [containerRef, isVisible] = useElementOnScreen({
     root: null,
-    rootMargin: '100px',
+    rootMargin: '200px',
     threshold: 1.0,
   })
 

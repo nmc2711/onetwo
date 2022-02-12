@@ -24,7 +24,7 @@ const ShopReviewComponent: React.FC<ShopReviewProps> = ({ item }) => {
 
   const [containerRef, isVisible] = useElementOnScreen({
     root: null,
-    rootMargin: '120px',
+    rootMargin: '100px',
     threshold: 1.0,
   })
   
