@@ -1,6 +1,6 @@
 /**
  * @title : 모든 컴포넌트의 Root INDEX - _app.tsx
- * @purpose : Redux, Query, Style 등 공통으로 사용될 Provider 또는 전역 모듈의 Container.
+ * @purpose : Redux, Query, Style 등 공통으로 사용될 Provider 또는 전역 모듈의 Container
  */
 import { useEffect } from 'react';
 import type { AppProps } from "next/app";

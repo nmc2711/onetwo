@@ -4,9 +4,10 @@
  */
 import { getProducts } from "lib/products";
 import { GetServerSideProps } from 'next';
-
 // toolkit
 import { useAppSelector } from 'toolkit/hooks';
+
+import { REVIEWS_TYPE, RESULT_IN_LIST } from '../types/reviewList'; 
 
 import Page from "components/common/Page";
 import Banner from "components/common/AdBanner";
@@ -16,8 +17,6 @@ import ShopReviews from 'pageSlice/shopReviewList';
 
 //style
 import { ResponsiveBox } from 'styles/customStyle';
-
-import { REVIEWS_TYPE, RESULT_IN_LIST } from '../types/reviewList'; 
 
 interface ReviewProps {
   products: REVIEWS_TYPE;

@@ -1,7 +1,11 @@
 import cookie from 'cookie';
+import { NextApiHandler } from 'next';
+
 import { fetchJson } from "lib/api";
 
-const handler = async (req: any, res: any) => {
+import { User } from 'types/user';
+
+const KakaoLoginHandler: NextApiHandler<User> = async (req, res) => {
   if (req.method !== 'POST') {
     res.status(405).end();
     return;
@@ -14,7 +18,6 @@ const handler = async (req: any, res: any) => {
       headers: { 'Content-Type': 'application/json;charset=UTF-8' },
       body: JSON.stringify({ accessToken }),
     });
-     
     res.status(200)
     .setHeader('Set-Cookie', cookie.serialize('jwt', result.token, {
       path: '/api',
@@ -22,7 +25,6 @@ const handler = async (req: any, res: any) => {
     }))
     .setHeader('Set-Cookie', cookie.serialize('idAuth', result.user.id ))
     return res.json({
-      jwt: result.token,
       id: result.user.id,
       name: result.user.nickname,
     })
@@ -31,4 +33,4 @@ const handler = async (req: any, res: any) => {
   }
 }
 
-export default handler;
+export default KakaoLoginHandler;
