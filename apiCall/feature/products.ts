@@ -1,7 +1,7 @@
-import { fetchJson } from './api';
+import { fetchJson } from '../../lib/api';
 
-import { Product } from '../types/product'; //이걸로 바꿔야 할듯
-import { baseApiUrl } from '../enum/config';
+import { Product } from '../../types/product'; //이걸로 바꿔야 할듯
+import { baseApiUrl } from '../../enum/config';
 
 export async function getProduct(id: string): Promise<Product> {
   const product = await fetchJson(`${baseApiUrl}/products/${id}`);

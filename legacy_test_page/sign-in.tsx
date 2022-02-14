@@ -4,34 +4,33 @@
  */
 import { useRouter } from 'next/router';
 import React, { FormEventHandler, useState, useLayoutEffect } from 'react';
-import { useSignIn } from 'hooks/user';
-import { kakaoLogin } from 'hooks/login';
+import { kakaoLogin } from 'apiCall/feature/login';
 
-import Button from 'components/common/Button';
-import Field from 'components/common/Field';
-import Input from 'components/common/Input';
-import Page from 'components/common/Page';
+import Button from 'components/Button';
+import Field from 'components/Field';
+import Input from 'components/Input';
+import Page from 'components/Page';
 
 function SigInPage() {
-  const router = useRouter();
+  // const router = useRouter();
   
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
 
-  const { signIn, signInLoading, signInError } = useSignIn();
-  const { signInKakao  } = kakaoLogin();
+  // const { signIn, signInLoading, signInError } = useSignIn();
+  // const { signInKakao  } = kakaoLogin();
 
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
-    event.preventDefault();
-    const valid = await signIn(email, password);
-    if (valid) {
-      router.push('/');
-    }
-  };
+  // const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
+  //   event.preventDefault();
+  //   const valid = await signIn(email, password);
+  //   if (valid) {
+  //     router.push('/');
+  //   }
+  // };
 
-  const handleSubmitKako = async () => {
-    await signInKakao();
-  };
+  // const handleSubmitKako = async () => {
+  //   await signInKakao();
+  // };
 
   return (
     <Page title="헛둘 로그인">

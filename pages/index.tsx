@@ -2,15 +2,15 @@
  * @title : 메인페이지
  * @path : '/'
  */
-import { getProducts } from "lib/products";
+import { getProducts } from "apiCall/feature/products";
 import { GetServerSideProps } from 'next';
 // toolkit
 import { useAppSelector } from 'toolkit/hooks';
 
 import { REVIEWS_TYPE, RESULT_IN_LIST } from '../types/reviewList'; 
 
-import Page from "components/common/Page";
-import Banner from "components/common/AdBanner";
+import Page from "components/Page";
+import Banner from "components/AdBanner";
 
 import ChoiceTaste from "pageSlice/choiceTaste";
 import ShopReviews from 'pageSlice/shopReviewList';

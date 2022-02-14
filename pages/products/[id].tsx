@@ -2,12 +2,12 @@
  * @title : ProductPage - 음식점 디테일 페이지
  */
 import type { NextPage } from "next";
-import { getProducts, getProduct } from "lib/products";
+import { getProducts, getProduct } from "apiCall/feature/products";
 
 // c
 import { ImageW100 } from 'styles/customStyle';
 import { ApiError } from "lib/api";
-import Page from "components/common/Page";
+import Page from "components/Page";
 
 // toolkit
 import { useAppDispatch, useAppSelector } from 'toolkit/hooks';

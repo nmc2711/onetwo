@@ -1,7 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
 
 import { Flex, Box, Text } from "@chakra-ui/react";
-import Image from 'next/image';
 
 import ArrowWhiteImg from 'asset/union/arrow_white_s.png';
 import SmileIcon from 'asset/union/smile_icon.png';

@@ -25,5 +25,4 @@ function ReviewBanner() {
     </>
   )
 }
-
 export default ReviewBanner

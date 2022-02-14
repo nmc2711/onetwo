@@ -1,7 +1,8 @@
 import { useMutation, useQueryClient } from 'react-query';
-import { fetchJson } from '../lib/api';
+import { fetchJson } from 'lib/api';
 
 const USER_QUERY_KEY = 'user';
+
 const { Kakao }: any = typeof window !== "undefined" &&  window;
 
 export function kakaoLogin() {

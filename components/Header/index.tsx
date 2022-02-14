@@ -1,23 +1,25 @@
 /**
 * @title : sticky common header(nav)
 */
-import { useUser } from 'apiCall/feature/user';
 import Link from "next/link";
-import { Flex, Box } from "@chakra-ui/react";
-
 import Image from 'next/image';
 
-import LogoImg from 'asset/logo/Logos.png';
+import { kakaoLogin } from 'apiCall/feature/login';
+import { useUser } from 'apiCall/feature/user';
+import { useColorMode } from "@chakra-ui/color-mode";
+
+import { User } from 'types/user';
+
+import { Flex, Box } from "@chakra-ui/react";
 
 import { NavText, StickyHeader } from './styled';
-import { kakaoLogin } from 'hooks/login';
 
-import { useColorMode } from "@chakra-ui/color-mode";
+import LogoImg from 'asset/logo/Logos.png';
 
 const HeaderComponent = () => {
   const { setColorMode, colorMode } = useColorMode();
 
-  const user: any = useUser();
+  const user: User | undefined = useUser();
 
   const { signInKakao  } = kakaoLogin();
 
