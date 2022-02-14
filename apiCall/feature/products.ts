@@ -9,7 +9,7 @@ export async function getProduct(id: string): Promise<Product> {
 }
 
 export async function getProducts() {
-  const products = await fetchJson(`http://ec2-54-180-30-10.ap-northeast-2.compute.amazonaws.com:5510/api/v1/reviews?tags=NO_KIDS_ZONE&tags=CHEAP&page=1&limit=5&lastId=`);
+  const products = await fetchJson(`${process.env.API_URL}/reviews?tags=NO_KIDS_ZONE&tags=CHEAP&page=1&limit=5&lastId=`);
   return products;
 }
 

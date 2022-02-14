@@ -7,6 +7,7 @@ module.exports = {
   },
   env: {
     KAKAO_JS_KEY: process.env.KAKAO_JS_KEY,
+    API_URL: process.env.API_URL,
   },
   async headers() {
     return [

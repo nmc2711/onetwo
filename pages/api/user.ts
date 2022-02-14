@@ -11,7 +11,7 @@ const UserHandler: NextApiHandler<User> = async(req, res) => {
     return;
   }
   try {
-    const user = await fetchJson(`http://ec2-54-180-30-10.ap-northeast-2.compute.amazonaws.com:5510/api/v1/users`, {
+    const user = await fetchJson(`${process.env.API_URL}/users`, {
       headers: { 'Authorization': `Bearer ${jwt}` },
     });
     res.status(200).json({
