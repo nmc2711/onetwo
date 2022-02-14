@@ -5,6 +5,9 @@ module.exports = {
   images: {
     domains: ['localhost']
   },
+  env: {
+    KAKAO_JS_KEY: process.env.KAKAO_JS_KEY,
+  },
   async headers() {
     return [
       {
