@@ -21,7 +21,7 @@ const { Kakao }: any = typeof window !== "undefined" && window;
 function MyApp({ Component, pageProps }: AppProps) {
   // 카카오 javascript key insert
   useEffect(() => {
-    Kakao.init("30653f7c73c422920b2f184e8e96e652");
+    Kakao.init(process.env.NEXT_PUBLIC_KAKAO_JS_KEY);
   }, []);
 
   return (
