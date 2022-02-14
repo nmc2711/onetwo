@@ -2,9 +2,10 @@ import React from 'react';
 
 import { LIST_IN_REVIEW } from 'types/reviewList';
 
-import { ReviewTitleBox, ReviewText } from './styled';
-import { chakra, Flex, Text, Box } from "@chakra-ui/react";
 import Image from 'next/image';
+import { Flex, Box } from "@chakra-ui/react";
+
+import { ReviewTitleBox, ReviewText } from './styled';
 
 import ArrowImg from 'asset/union/dark-arrow-m.png';
 

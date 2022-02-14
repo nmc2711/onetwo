@@ -2,8 +2,8 @@ import React from 'react';
 
 import { LIST_IN_REVIEW } from 'types/reviewList';
 
-import { chakra, Flex, Text, Box } from "@chakra-ui/react";
-import EllipePoly from '../../../poly/ellipe'
+import { Text } from "@chakra-ui/react";
+import OvalPolygon from 'components/Polygons/oval'
 
 import { PhotoAreaBox, InnerBox, TextBox } from '../styled';
 
@@ -16,7 +16,7 @@ const PhotoAreaComponent: React.FC<PhotoAreaProps> = ({ review }) => {
   return (
     <PhotoAreaBox>
       <InnerBox>
-        <EllipePoly imageUrl={reviewBG} />
+        <OvalPolygon imageUrl={reviewBG} />
       </InnerBox>
       <TextBox>
       

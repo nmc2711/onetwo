@@ -1,14 +1,14 @@
 import React from 'react'
 
-import { StepNavBox } from '../styled';
+import { useAppSelector } from 'toolkit/hooks';
 
 import { Text } from "@chakra-ui/layout";
 
-// toolkit
-import { useAppSelector } from 'toolkit/hooks';
+import { StepNavBox } from '../styled';
 
 function StepNavigatorComponent() {
   const { steps } = useAppSelector((state) => state.choice);
+  
   return (
     <StepNavBox>
       <Text color="dGray.900" fontSize="s" fontWeight="bold">{steps}</Text>

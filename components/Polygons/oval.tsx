@@ -1,12 +1,12 @@
 /**
- * @title : custom polycon ellipe 
- */
+* @title : custom oval polygon
+*/
 
 export type ImageType = {
   imageUrl: string
 };
 
-function EllipePoly(imageUrl: ImageType) {
+function OvalPolyComponent(imageUrl: ImageType) {
   return (
     <svg width="322px" height="322px">
 
@@ -28,4 +28,4 @@ function EllipePoly(imageUrl: ImageType) {
   </svg>
   )
 }
-export default EllipePoly
+export default OvalPolyComponent;
