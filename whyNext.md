@@ -1,4 +1,4 @@
-### Pre-rendering
+<!-- ### Pre-rendering
 
 Pre-rendering은 Next.js에서 중요한 컨셉 중 하나다.
 기본적으로, Next.js는 모든 페이지를 pre-render을 한다.
@@ -70,4 +70,4 @@ Pre-rendering은 SEO에서 더 나은 퍼포먼스를 보여줄 수 있다.
     const products = await res.json();
     return { props: { products }};
   }
-```
+``` -->
