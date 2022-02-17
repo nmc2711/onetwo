@@ -1,6 +1,7 @@
 import { forwardRef, ReactNode, useEffect } from "react";
 
 import useObserveScroll from './useObserverScroll';
+import useDebounce from '../useDebounce';
 
 interface TProps {
   callback?(): void;
@@ -18,9 +19,25 @@ const InfinityCompoent = forwardRef<HTMLDivElement, TProps>(
     const { entry } = useObserveScroll(checkLastRef, {
       threshold,
       rootMargin: rootmargin,
-    })
+    });
+
+    const isVisible = !!entry?.isIntersecting;
+
+    const debounceValue = useDebounce<boolean>(isVisible, 500);
+
+    useEffect(() => {
+      if (callback && isVisible) callback();
+    }, [debounceValue]);
+
     return (
       <div ref={ref}>{children}</div>
     )
   }
 )
+
+InfinityCompoent.defaultProps = {
+  rootmargin: "0%",
+  threshold: 0,
+};
+
+export default InfinityCompoent;
