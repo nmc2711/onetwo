@@ -27,7 +27,6 @@ export async function getServerSideProps() {
 const HomePage: NextPage = ({ products }: any) => {
   console.log(products)
   const { value } = useAppSelector((state) => state.choice);
-
   return (
     value ? 
     <Page title="All reviews are there Digging !">
