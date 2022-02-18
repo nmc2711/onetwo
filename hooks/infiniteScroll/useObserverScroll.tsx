@@ -3,7 +3,6 @@ import { RefObject, useState, useEffect } from 'react';
 interface Args extends IntersectionObserverInit {
   freezeOnceVisible?: boolean;
 }
-
 interface Props {
   entry: IntersectionObserverEntry | undefined;
 }
@@ -16,30 +15,30 @@ function useObserveScroll(
     rootMargin = "0%",
     freezeOnceVisible = false,
   }: Args,
-  page? : number
-  ): Props {
-    const [entry, setEntry] = useState<IntersectionObserverEntry>();
-    const frozen = entry?.isIntersecting && freezeOnceVisible;
+  page?: number
+): Props {
+  const [entry, setEntry] = useState<IntersectionObserverEntry>();
+  const frozen = entry?.isIntersecting && freezeOnceVisible; 
 
-    const updateEntry = ([entry]: IntersectionObserverEntry[]): void => {
-      setEntry(entry);
-    }
+  const updateEntry = ([entry]: IntersectionObserverEntry[]): void => {
+    setEntry(entry);
+  };
 
-    useEffect(() => {
-      if (!elementRef) return;
-      const node = elementRef?.current;
-      const hasIOsupport = window?.IntersectionObserver ?? false;
-      if (!hasIOsupport || frozen || !node) return;
+  useEffect(() => {
+    if (!elementRef) return;
+    const node = elementRef?.current;
+    const hasIOsupport = window?.IntersectionObserver ?? false;
+    if (!hasIOsupport || frozen || !node) return;
 
-      const observerParams = { threshold, root, rootMargin };
+    const observerParams = { threshold, root, rootMargin };
+    const observer = new IntersectionObserver(updateEntry, observerParams);
 
-      const observer = new IntersectionObserver(updateEntry, observerParams);
+    observer.observe(node);
 
-      return () => observer.disconnect();
+    return () => hasIOsupport && observer.disconnect();
+  }, [elementRef, page, threshold, root, rootMargin, frozen]);
 
-    }, [elementRef, page, threshold, root, rootMargin, frozen]);
-
-    return { entry };
+  return { entry };
 }
 
 export default useObserveScroll;

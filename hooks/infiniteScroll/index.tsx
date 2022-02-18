@@ -9,10 +9,10 @@ interface TProps {
   itemkey: number;
   leng: number;
   rootmargin?: string;
-  threshold?: number; 
+  threshold?: number;
 }
 
-const InfinityCompoent = forwardRef<HTMLDivElement, TProps>(
+const InfinityComponent = forwardRef<HTMLDivElement, TProps>(
   ({ children, ...props }, ref: any) => {
     const { callback, itemkey, leng, rootmargin, threshold } = props;
     const checkLastRef = leng === itemkey + 1 ? ref : null;
@@ -22,22 +22,19 @@ const InfinityCompoent = forwardRef<HTMLDivElement, TProps>(
     });
 
     const isVisible = !!entry?.isIntersecting;
-
-    const debounceValue = useDebounce<boolean>(isVisible, 500);
+    const debouncedValue = useDebounce<boolean>(isVisible, 500);
 
     useEffect(() => {
       if (callback && isVisible) callback();
-    }, [debounceValue]);
+    }, [debouncedValue]);
 
     return (
       <div ref={ref}>{children}</div>
     )
   }
 )
-
-InfinityCompoent.defaultProps = {
+InfinityComponent.defaultProps = {
   rootmargin: "0%",
   threshold: 0,
 };
-
-export default InfinityCompoent;
+export default InfinityComponent;
