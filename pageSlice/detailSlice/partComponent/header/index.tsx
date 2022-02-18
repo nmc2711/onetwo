@@ -3,7 +3,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useRouter } from "next/router";
 
-import ArrowbackSvg from 'asset/svgs/arrowback.svg';
+import ArrowbackSvg from 'asset/svgs/arrowback-black.svg';
 import KeepSvg from 'asset/svgs/keep-black.svg';
 import ShareSvg from 'asset/svgs/share-black.svg';
 

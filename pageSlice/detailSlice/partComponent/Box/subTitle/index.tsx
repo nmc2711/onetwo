@@ -1,8 +1,9 @@
 import React from 'react';
 
 import Image from 'next/image';
+
 import MyphotoImg from 'asset/detail/myphoto.png';
-import UserImg from 'asset/detail/user.png';
+import UserSvg from 'asset/svgs/person-gray.svg';
 
 import { Flex, Text } from "@chakra-ui/react";
 
@@ -17,7 +18,7 @@ function DetailSubTitleComponent() {
         </Flex>
 
         <Flex alignItems="center" h="32px" padding="4px 10px" bg="dPrimary" borderRadius="32px">
-          <Image src={UserImg} width={22} height={20} alt="" />
+          <Image src={UserSvg} width={16} height={16} alt="" />
           <Text fontSize="s" fontWeight="bold" ml="6px" color="#fff">1 /3 </Text>
         </Flex>
       </Flex>

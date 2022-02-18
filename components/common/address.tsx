@@ -2,8 +2,8 @@ import React from 'react';
 
 import Image from 'next/image';
 
-import GroupSvg from "asset/svgs/group.svg";
-import WarningSvg from "asset/svgs/warning.svg";
+import GroupSvg from "asset/svgs/group-gray.svg";
+import WarningSvg from "asset/svgs/warning-gray.svg";
 
 import { Flex, Text } from "@chakra-ui/react";
 
