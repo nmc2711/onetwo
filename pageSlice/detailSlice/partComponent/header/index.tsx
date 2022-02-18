@@ -1,21 +1,30 @@
 import React from 'react';
 
 import Image from 'next/image';
+import { useRouter } from "next/router";
 
-import ArrowbackImg from 'asset/detail/arrowback.png';
-import KeepgrayImg from 'asset/detail/keepgray.png';
-import ShareImg from 'asset/detail/share.png';
+import ArrowbackSvg from 'asset/svgs/arrowback.svg';
+import KeepSvg from 'asset/svgs/keep-black.svg';
+import ShareSvg from 'asset/svgs/share-black.svg';
+
+import { Flex, Box } from "@chakra-ui/react";
 
 function DetailHeaderComponent() {
+  const router = useRouter();
+
+  function onClickBack() {
+    router.push('/')
+  }
+
   return (
     <>
-      <div className="flex justify-between p-4">
-        <Image src={ArrowbackImg} width={24} height={24} alt="" />
-        <div>
-          <Image src={KeepgrayImg} width={24} height={24} alt="" />
-          <Image src={ShareImg} width={24} height={24} alt="" />
-        </div>
-      </div>
+      <Flex justify="space-between" padding="24px 20px">
+        <Image src={ArrowbackSvg} width={24} height={24} alt="" onClick={onClickBack} />
+        <Box>
+          <Image src={KeepSvg} width={24} height={24} alt="" />
+          <Image src={ShareSvg} width={24} height={24} alt="" />
+        </Box>
+      </Flex>
     </>
   )
 }
