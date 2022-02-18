@@ -12,7 +12,7 @@ type Tprops = {
   onClickShare: () => void;
 }
 
-function DetailFoorterComponent({ onClickKeep, onClickShare }: Tprops) {
+const Foorter: React.FC<InputProps> = ({ onClickKeep, onClickShare }: TProps) => {
   return (
     <>
       <Flex>
@@ -20,7 +20,6 @@ function DetailFoorterComponent({ onClickKeep, onClickShare }: Tprops) {
           <Image src={KeepSvg} alt="유지하기" width={24} height={24} />
           <Text fontSize="s" fontWeight="bold" color="rgba(34, 34, 34, 0.4);">keep</Text>
         </Flex>
-
         <Flex marginLeft="20px" onClick={onClickShare}>
           <Image src={ShareSvg} alt="" width={24} height={24} />
           <Text fontSize="s" fontWeight="bold" color="rgba(34, 34, 34, 0.4);">Share</Text>
@@ -29,4 +28,4 @@ function DetailFoorterComponent({ onClickKeep, onClickShare }: Tprops) {
     </>
   )
 }
-export default DetailFoorterComponent
+export default Foorter

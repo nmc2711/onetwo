@@ -1,29 +1,30 @@
 import React from 'react';
 
-import Addres from 'components/common/address';
-import Foorter from 'components/common/foorter';
+import Address from 'components/common/AddressBox';
+import Foorter from 'components/common/FoorterBox';
 
 import Title from './title';
 import Photo from './photo';
 import SubTitle from './subTitle';
 import TextBox from './textBox';
 
+import { Flex, Box, Text } from "@chakra-ui/react";
+
 function DetailBoxComponent() {
-  const addressItem = {
+  const addressItem: any = {
     addressName: '런던 베이글 뮤지엄',
     address: '서울특별시 종로구 북촌로4길 20',
   }
-
   return (
     <>
       <Title />
-      <div className="p-5 border-t">
+      <Box padding="20px" borderTop="1px solid rgba(34, 34, 34, 0.08)">
         <SubTitle />
         <Photo />
         <TextBox />
-        <Addres item={addressItem} cb={() => console.log("경로설정 함수 ::::")} />
+        <Address item={addressItem} cb={() => console.log("경로설정 함수 ::::")} />
         <Foorter onClickKeep={() => console.log("유지하기 클릭 함수 ::::")} onClickShare={() => console.log("공유하기 클릭 함수 :::")} />
-      </div>
+      </Box>
     </>
   )
 }
