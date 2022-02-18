@@ -1,4 +1,4 @@
-import { chakra, Flex, Text, Box } from "@chakra-ui/react";
+import { chakra, Flex, Text } from "@chakra-ui/react";
 
 export const ChoiceWrap = chakra(Flex, {
   baseStyle: {

@@ -1,5 +1,5 @@
 /**
- * @title : react-query 공통 apiCall custom hooks
+ * @title : react-query 공통 apiCall
  */
 
 import { createStandaloneToast } from '@chakra-ui/react';

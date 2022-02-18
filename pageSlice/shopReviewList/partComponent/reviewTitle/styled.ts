@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { chakra, Flex, Text, Box } from "@chakra-ui/react";
+import { chakra, Flex, Text } from "@chakra-ui/react";
 
 export const ReviewTitleBox = styled(Flex)`
   align-items: center;
@@ -11,6 +11,7 @@ export const ReviewTitleBox = styled(Flex)`
 
 export const ReviewText = chakra(Text, {
   baseStyle: {
+    width: '100%',
     color: 'dGray.900',
     fontWeight: '800',
     fontSize: 'xxxl',

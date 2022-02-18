@@ -1,6 +1,6 @@
 /**
  * @title : 모든 컴포넌트의 Root INDEX - _app.tsx
- * @purpose : Redux, Query, Style 등 공통으로 사용될 Provider 또는 전역 모듈을 설정할 수 있다.
+ * @purpose : Redux, Query, Style 등 공통으로 사용될 Provider 또는 전역 모듈의 Container
  */
 import { useEffect } from 'react';
 import type { AppProps } from "next/app";
@@ -16,12 +16,12 @@ import Head from 'next/head';
 import "styles/globals.css";
 import theme from "styles/theme";
 
-const { Kakao }: any = typeof window !== "undefined" &&  window;
+const { Kakao }: any = typeof window !== "undefined" && window;
 
 function MyApp({ Component, pageProps }: AppProps) {
-
+  // 카카오 javascript key insert
   useEffect(() => {
-    Kakao.init("30653f7c73c422920b2f184e8e96e652");
+    Kakao.init(process.env.KAKAO_JS_KEY);
   }, []);
 
   return (

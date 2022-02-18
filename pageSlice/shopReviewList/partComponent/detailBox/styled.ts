@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-import { chakra, Flex, Text, Box } from "@chakra-ui/react";
+import { chakra, Flex, Text } from "@chakra-ui/react";
 
 export const DetailWrap = styled(Flex)`
   flex-direction: column;
-  margin-top: 32px;
-  border-top: 1px solid rgba(34, 34, 34, 0.08);
 `;
 
 export const SubText = chakra(Text, {
@@ -31,10 +29,12 @@ export const PhotoAreaBox = styled(Flex)`
 export const InnerBox = styled(Flex)`
   transform: scaleY(-1);
 
-  mask: linear-gradient(rgba(255, 255, 255, 0) 0.1%, #FFFFFF 24%);
+  mask: linear-gradient(rgba(255, 255, 255, 0) 0.1%, #FFFFFF 50%);
 `;
 
 export const TextBox = styled(Flex)`
+  align-self: flex-start;
+  min-height: 60px;
   margin: 24px 0 28px 0;
   position: relative;
   display: -webkit-box;

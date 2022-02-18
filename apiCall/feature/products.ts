@@ -1,16 +1,16 @@
-import { fetchJson } from './api';
+import { fetchJson } from '../../lib/api';
 
-import { Product } from '../@types/product'; //이걸로 바꿔야 할듯
-import { baseApiUrl } from '../enum/config';
+import { Product } from '../../types/product'; //이걸로 바꿔야 할듯
+import { baseApiUrl } from '../../enum/config';
 
 export async function getProduct(id: string): Promise<Product> {
   const product = await fetchJson(`${baseApiUrl}/products/${id}`);
   return stripProduct(product);
 }
 
-export async function getProducts(): Promise<Product[]> {
-  const products = await fetchJson(`${baseApiUrl}/products`);
-  return products.map(stripProduct);
+export async function getProducts() {
+  const products = await fetchJson(`${process.env.API_URL}/reviews?tags=NO_KIDS_ZONE&tags=CHEAP&page=1&limit=5&lastId=`);
+  return products;
 }
 
 function stripProduct(product: any): Product {

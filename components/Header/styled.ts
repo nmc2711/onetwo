@@ -14,7 +14,7 @@ export const StickyHeader = chakra(Flex, {
     justifyContent: 'center',
     alignItems: 'center',
     p: '20px',
-    backgroundColor: 'rgba(255, 255, 255, 0.37)',
+    backgroundColor: 'rgba(255, 255, 255, 255)',
     backdropFilter: 'blur(15px)',
     position: 'sticky',
     top: '0px',

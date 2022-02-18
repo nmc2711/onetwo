@@ -1,17 +1,15 @@
 import React from 'react';
 
-import { Flex, Text, Box } from "@chakra-ui/react";
-
-import Image from 'next/image';
-
-import LogoImg from 'asset/logo/Logos.png';
-
 // toolkit
 import { useAppDispatch } from 'toolkit/hooks';
 import { checker } from 'features/choice';
 
+import { Flex, Text, Box } from "@chakra-ui/react";
+import Image from 'next/image';
+
+import LogoImg from 'asset/logo/Logos.png';
+
 function ChoiceHeaderComponent() {
-  // toolkit
   const dispatch = useAppDispatch();
   
   return (
@@ -25,5 +23,4 @@ function ChoiceHeaderComponent() {
     </Flex>
   )
 }
-
-export default ChoiceHeaderComponent
+export default ChoiceHeaderComponent;

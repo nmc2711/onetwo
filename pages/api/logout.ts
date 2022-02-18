@@ -1,4 +1,5 @@
 import cookie from 'cookie';
+
 import { NextApiHandler } from 'next';
 
 const handleLogout: NextApiHandler = (req, res) => {
@@ -9,5 +10,4 @@ const handleLogout: NextApiHandler = (req, res) => {
   }))
   return res.json({});
 };
-
 export default handleLogout;

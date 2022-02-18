@@ -1,10 +1,18 @@
-function EllipePoly() {
+/**
+* @title : custom oval polygon
+*/
+
+export type ImageType = {
+  imageUrl: string
+};
+
+function OvalPolyComponent(imageUrl: ImageType) {
   return (
     <svg width="322px" height="322px">
 
     <defs>
       <pattern id="imgpattern" width="100%" height="100%" viewBox="0 0 322 322" preserveAspectRatio="none">
-        <image href="http://img2.sbs.co.kr/img/sbs_cms/CH/2018/04/20/CH58310654_w666_h968.jpg" width="322px"/>
+        <image href={imageUrl.imageUrl} width="322px"/>
       </pattern>
     </defs>
 
@@ -20,5 +28,4 @@ function EllipePoly() {
   </svg>
   )
 }
-
-export default EllipePoly
+export default OvalPolyComponent;
