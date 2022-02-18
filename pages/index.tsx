@@ -31,7 +31,6 @@ export const getServerSideProps: GetServerSideProps<ReviewProps> = async () => {
 const HomePage: React.FC<ReviewProps> = ({ products }) => {
   const { result } = products;
   const { value } = useAppSelector((state) => state.choice);
-
   return (
     value ? 
     <Page title="All reviews are there Digging !">
