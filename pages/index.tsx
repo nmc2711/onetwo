@@ -2,12 +2,14 @@
  * @title : 메인페이지
  * @path : '/'
  */
+import { useState, useRef } from 'react';
 import { getProducts } from "apiCall/feature/products";
 import { GetServerSideProps } from 'next';
 // toolkit
 import { useAppSelector } from 'toolkit/hooks';
 
 import { REVIEWS_TYPE, RESULT_IN_LIST } from '../types/reviewList'; 
+import Infinity from 'hooks/infiniteScroll';
 
 import Page from "components/Page";
 import Banner from "components/AdBanner";
@@ -30,17 +32,33 @@ export const getServerSideProps: GetServerSideProps<ReviewProps> = async () => {
 
 const HomePage: React.FC<ReviewProps> = ({ products }) => {
   const { result } = products;
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const fakeList = result.list;
+  const [list, setList] = useState(result.list);
+  const [page, setPage] = useState(1);
   const { value } = useAppSelector((state) => state.choice);
+  
+  const scrollCallback = () => {
+    setList(list.concat(fakeList));
+    setPage(page + 1);
+  }
+
   return (
     value ? 
     <Page title="All reviews are there Digging !">
       <Banner />
       <ResponsiveBox>
-        {result && result.list.map((item: RESULT_IN_LIST, idx: number) => {
+        {result && list.map((item: RESULT_IN_LIST, idx: number) => {
           return (
-            <div key={idx + '리뷰 인덱스'}>
+            <Infinity
+              ref={ref}
+              itemkey={idx}
+              leng={list.length}
+              callback={scrollCallback}
+              key={idx}>
               <ShopReviews item={item} />
-            </div>
+            </Infinity>
           )
         })}
       </ResponsiveBox>
