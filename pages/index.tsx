@@ -26,12 +26,12 @@ interface ReviewProps {
 
 // SideEffect
 export const getServerSideProps: GetServerSideProps<ReviewProps> = async () => {
-  const products = await getProducts();
+  const products = await getProducts({ tags:'NO_KIDS_ZONE', tag: 'CHEAP', page: 1, limit: 5, lastId: '' });
   return { props: { products, revalidate: 5 * 60 } };
 }
 
 const HomePage: React.FC<ReviewProps> = ({ products }) => {
-  const { result } = products;
+   const { result } = products;
   const ref = useRef<HTMLDivElement | null>(null);
 
   const fakeList = result.list;
