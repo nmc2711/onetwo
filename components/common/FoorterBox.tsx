@@ -7,12 +7,12 @@ import ShareSvg from 'asset/svgs/share-gray.svg';
 
 import { Flex, Text } from "@chakra-ui/react";
 
-type Tprops = {
+type TProps = {
   onClickKeep: () => void;
   onClickShare: () => void;
 }
 
-const Foorter: React.FC<InputProps> = ({ onClickKeep, onClickShare }: TProps) => {
+const Foorter = ({ onClickKeep, onClickShare }: TProps) => {
   return (
     <>
       <Flex>

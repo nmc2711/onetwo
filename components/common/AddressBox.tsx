@@ -10,9 +10,9 @@ import { Flex, Text } from "@chakra-ui/react";
 type TProps = {
   addressName: string,
   address: string,
-  cb: () => void
 }
-const Address: React.FC<InputProps> = ({ item, cb }: TProps) => {
+
+const Address = ({ item, cb }: { item: TProps, cb: () => void }) => {
   return (
     <>
       <Flex justify="space-between" padding="24px 20px" marginBottom="32px" borderRadius="12px" border="1px solid rgba(34, 34, 34, 0.08);">

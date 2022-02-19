@@ -35,8 +35,10 @@ const HomePage: React.FC<ReviewProps> = ({ products }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   const fakeList = result.list;
+
   const [list, setList] = useState(result.list);
   const [page, setPage] = useState(1);
+  
   const { value } = useAppSelector((state) => state.choice);
   
   const scrollCallback = () => {
