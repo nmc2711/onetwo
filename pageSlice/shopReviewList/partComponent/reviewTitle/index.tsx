@@ -19,7 +19,7 @@ const ReviewtitleComponent: React.FC<ReviewTitleProps> = ({ review, flexibleStic
     <ReviewTitleBox>
       <ReviewText>{review.title}
       {!flexibleSticky && 
-        <Flex alignItem="center" display="inline-flex" float="right">
+        <Flex alignItems="center" display="inline-flex" float="right">
           <Box width="32px" height="32px">
             <Image src={ArrowImg} alt="초이스 셀렉트 로고이미지"/>
           </Box>
