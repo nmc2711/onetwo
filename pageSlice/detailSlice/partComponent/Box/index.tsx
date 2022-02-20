@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 import Address from 'components/common/AddressBox';
@@ -10,11 +11,15 @@ import TextBox from './textBox';
 
 import { Flex, Box, Text } from "@chakra-ui/react";
 
+import { getDetail } from 'apiCall/feature/detail';
+
 function DetailBoxComponent() {
   const addressItem: any = {
     addressName: '런던 베이글 뮤지엄',
     address: '서울특별시 종로구 북촌로4길 20',
   }
+
+  getDetail();
   return (
     <>
       <Title />
