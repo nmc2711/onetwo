@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
             <link rel="icon" href="/icons/favicon.ico" />
             <script defer src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+            <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
           </Head>
 
           {/* Child Components */}
