@@ -11,10 +11,7 @@ export async function getProduct(id: string): Promise<Product> {
 }
 
 export async function getProducts(params: any) {
-  const products = await fetchJson(qs('reviews', params), {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-  });
+  const products = await fetchJson(qs('reviews', params));
   return products;
 }
 
