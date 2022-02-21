@@ -10,11 +10,13 @@ import { GetServerSideProps } from 'next';
 import { useAppSelector } from 'toolkit/hooks';
 //style
 import { ResponsiveBox } from 'styles/customStyle';
+
+import ImageUploader from 'components/ImageUpload';
  
 const RegistPage: React.FC = () => {
 
   return (
-    <>리뷰 등록페이지</>
+    <><ImageUploader /></>
   );
 };
 export default RegistPage;

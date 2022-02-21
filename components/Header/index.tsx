@@ -37,7 +37,7 @@ const HeaderComponent = () => {
     <>
       <StickyHeader>
         <Box width="70px" height="32px">
-          <Link href="/">
+          <Link href="/" passHref>
             <Image src={LogoImg} alt="초이스 셀렉트 로고이미지" />
           </Link>
         </Box>
@@ -46,7 +46,7 @@ const HeaderComponent = () => {
           <NavText onClick={toggleMode}>{colorMode === 'dark' ? 'Dark' : 'Light'}</NavText>
           <NavText>Filter</NavText>
           {user ? 
-            <Link href="/mypage">
+            <Link href="/mypage" passHref>
               <NavText mr={0}>MyPage</NavText>
             </Link>
             :
