@@ -1,6 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
-
-const MAX_FILE = 30;
+import { useState } from 'react';
 
 function useAddImage() {
   const [imageSrc, setImageSrc] = useState();
