@@ -11,12 +11,21 @@ import { useAppSelector } from 'toolkit/hooks';
 //style
 import { ResponsiveBox } from 'styles/customStyle';
 
+import BackPage from 'components/BackPage';
 import ImageUploader from 'components/ImageUpload';
+
+const LeftSideComponents = () => {
+  return (
+    <div>왼쪽 컨텐츠</div>
+  )
+}
  
 const RegistPage: React.FC = () => {
 
   return (
-    <><ImageUploader /></>
+    <BackPage title="리뷰등록 페이지입니다." leftSideComponent={<LeftSideComponents />}>
+      <ImageUploader />
+    </BackPage>
   );
 };
 export default RegistPage;
