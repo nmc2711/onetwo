@@ -6,8 +6,8 @@ export interface DataSource {
 }
 
 export interface TUploader {
-  width?: string;
-  height?: string;
+  width: string;
+  height: string;
   isDragAcceptColor?: boolean;
   isDragNotAcceptColor?: boolean;
   isDragRejectColor?: boolean;
