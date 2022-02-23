@@ -18,6 +18,8 @@ import ImageUploader from 'components/ImageUpload';
  
 const RegistPage: React.FC = () => {
 
+  const [imageArray, setImageArray] = useState([]);
+
   const LeftSideComponents = () => {
     return (
       <Text fontWeight="bold" fontSize="m" color="dGray.500">다음</Text>
