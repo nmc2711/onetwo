@@ -8,10 +8,12 @@ import {
 import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 import { counterReducer } from '../features/counter';
 import { choiceReducer } from '../features/choice';
+import { registReviewReducer } from '../features/registReview';
   
 const combinedReducer = combineReducers({
   counter: counterReducer,
   choice: choiceReducer,
+  registReview: registReviewReducer,
 });
   
 const reducer = (state: any, action: AnyAction) => {

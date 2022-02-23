@@ -11,14 +11,13 @@ interface PageProps {
 
 const BackHeaderComponent: React.FC<PageProps> = ({ leftSideComponent }) => {
   return (
-    <Flex>
+    <Flex p="17px 20px" alignItems="center">
       <Image src={ArrowbackSvg} width={24} height={24} />
       {leftSideComponent &&
-        <Box>
+        <Box ml="auto">
           {leftSideComponent}
         </Box>}
     </Flex>
   )
 }
-
 export default BackHeaderComponent;

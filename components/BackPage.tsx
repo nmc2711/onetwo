@@ -1,13 +1,12 @@
 /**
- * @title : 페이지 공통 컴포넌트
+ * @title : 백버튼이 있는 페이지 공통 컴포넌트 레이아웃
  */
 import Head from 'next/head';
 import React, { ReactNode, useMemo } from 'react';
-
-import BackHeaderComponent from './BackHeader';
+import { useColorMode } from '@chakra-ui/color-mode';
 
 import { Box } from "@chakra-ui/layout";
-import { useColorMode } from '@chakra-ui/color-mode';
+import BackHeaderComponent from './BackHeader';
 
 interface PageProps {
   title?: string;
