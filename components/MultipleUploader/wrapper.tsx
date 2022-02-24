@@ -76,4 +76,5 @@ const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({
 
   )
 })
+UploaderWrapper.displayName = "UploaderWrapper";
 export default UploaderWrapper;
