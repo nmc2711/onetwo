@@ -6,22 +6,18 @@ interface TUploadWrapper {
   height: any;
   imagesArray: any;
   handleSetImagesArray: any;
-  isDragNotAcceptColor: any;
-  isDragRejectColor: any;
-  isDragAcceptColor?: any;
   multipleFiles: any;
   apiEndpoint: any;
   ref?: any;
 };
 
 const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({ 
-  width, height, imagesArray, handleSetImagesArray, isDragNotAcceptColor,
-  isDragRejectColor, multipleFiles, apiEndpoint,
+  width, height, imagesArray, handleSetImagesArray, multipleFiles, apiEndpoint,
 }, ref: any) => {
   const [processedFilesArray, setProcessedFilesArray] = useState([]);
 
   // sideEffect
-  useLayoutEffect(() => {
+  useEffect(() => {
     () => () => {imagesArray.map((image: any) => {
       URL.revokeObjectURL(image.preview);
     })}
@@ -58,9 +54,6 @@ const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({
       width={width}
       height={height}
       handleSetImagesArray={handleSetImagesArray}
-      isDragAcceptColor={isDragNotAcceptColor}
-      isDragNotAcceptColor={isDragNotAcceptColor}
-      isDragRejectColor={isDragRejectColor}
       multipleFiles={multipleFiles}
     >
       {imagesArray.length > 0 && (

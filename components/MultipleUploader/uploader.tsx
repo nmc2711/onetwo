@@ -1,22 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { uniqueId } from 'lodash';
-import fileSize from 'filesize';
 import { useDropzone } from 'react-dropzone';
+import fileSize from 'filesize';
 
 import { TUploader } from 'types/uploader';
 
-import Wrapper from './wrapper';
-
-
-const MultipleUploader: React.FC<TUploader> = (props) => {
-  const {  width,
-    height,
-    isDragAcceptColor,
-    isDragNotAcceptColor,
-    isDragRejectColor,
-    handleSetImagesArray,
-    multipleFiles,
-    } = props;
+const MultipleUploader: React.FC<TUploader> = props => {
+  const { width, height, handleSetImagesArray, multipleFiles,
+  } = props;
+  
   const createImageObj = (file: any) => {
     return {
       file,
@@ -56,9 +48,6 @@ const MultipleUploader: React.FC<TUploader> = (props) => {
     <div
       isDragAccept={isDragAccept}
       isDragReject={isDragReject}
-      isDragAcceptColor={isDragAcceptColor}
-      isDragNotAcceptColor={isDragNotAcceptColor}
-      isDragRejectColor={isDragRejectColor}
       width={width}
       height={height}
       {...getRootProps()}
