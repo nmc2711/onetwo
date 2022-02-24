@@ -16,8 +16,8 @@ function FormStepComponent() {
             className="form-control form-input icon-placeholder"
           />
           <span className="placeHolder">
-            <p style={{ color: 'red' }}>1줄</p>
-            <p>2줄</p>
+            <Text color="dGray.900" fontWeight="bold" fontSize="m">리뷰를 30자 이상 적어주세요.</Text>
+            <Text color="dGray.400" fontWeight="bold" fontSize="m">분위기, 가격, 예약유무를 적어주면 좋아요!</Text>
           </span>
         </label>
         {/* <ContentTextArea placeholder="줄바꿈은 다음과 같은 캐릭터셋을 지정합니다.&#13;&#10;줄바꿈이 되었습니다." /> */}

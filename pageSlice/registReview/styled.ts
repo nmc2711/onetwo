@@ -18,11 +18,8 @@ export const TitleInput = styled.input`
 
 export const ContentTextArea = styled.textarea`
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  min-height: 300px;
+  padding: 4px 0;
   box-sizing: border-box;
 
   :not(:placeholder-shown) ~ span {
@@ -37,8 +34,7 @@ export const ContentForm = styled.div`
 
   .placeHolder {
     position: absolute;
-    top: 37px;
-    left: 40px;
-    color: black;
+    top: 16px;
+    left: 20px;
   }
 `;
