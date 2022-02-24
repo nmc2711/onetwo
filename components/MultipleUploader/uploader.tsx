@@ -8,16 +8,15 @@ import { TUploader } from 'types/uploader';
 import Wrapper from './wrapper';
 
 
-const MultipleUploader: React.FC<TUploader> = ({
-  width,
-  height,
-  isDragAcceptColor,
-  isDragNotAcceptColor,
-  isDragRejectColor,
-  handleSetImagesArray,
-  multipleFiles
-}) => {
-
+const MultipleUploader: React.FC<TUploader> = (props) => {
+  const {  width,
+    height,
+    isDragAcceptColor,
+    isDragNotAcceptColor,
+    isDragRejectColor,
+    handleSetImagesArray,
+    multipleFiles,
+    } = props;
   const createImageObj = (file: any) => {
     return {
       file,
@@ -54,7 +53,7 @@ const MultipleUploader: React.FC<TUploader> = ({
    }: any = useDropzone({ onDrop });
 
   return (
-    <Wrapper
+    <div
       isDragAccept={isDragAccept}
       isDragReject={isDragReject}
       isDragAcceptColor={isDragAcceptColor}
@@ -65,7 +64,15 @@ const MultipleUploader: React.FC<TUploader> = ({
       {...getRootProps()}
     >
       <input {...getInputProps()} />
-    </Wrapper>
+      {isDragActive ? (
+          <p>이미지 첨부</p>
+        ) : (
+          <p>
+            이미지 첨부
+          </p>
+        )}
+      {props.children}
+    </div>
   )
 }
 export default MultipleUploader;
