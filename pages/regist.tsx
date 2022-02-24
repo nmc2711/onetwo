@@ -16,6 +16,11 @@ import { ResponsiveBox } from 'styles/customStyle';
 import BackPage from 'components/BackPage';
 import ImageUploader from 'components/ImageUpload';
 import UU from 'components/MultipleUploader/wrapper'
+
+
+// 
+
+import RegistReviewComponent from 'pageSlice/registReview';
  
 const RegistPage: React.FC = () => {
 
@@ -35,7 +40,8 @@ const RegistPage: React.FC = () => {
 
   return (
     <BackPage title="리뷰등록 페이지입니다." leftSideComponent={<LeftSideComponents />}>
-      <ImageUploader />
+      <RegistReviewComponent />
+      {/* <ImageUploader /> */}
       <UU
         ref={childRef}
         width='450px'

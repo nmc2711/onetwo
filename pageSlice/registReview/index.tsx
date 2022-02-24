@@ -1,9 +1,10 @@
 import React from 'react';
+import FormStep from './steps/form';
 
 function RegistReviewComponent() {
   return (
     <div>
-      
+      <FormStep />
     </div>
   )
 }
