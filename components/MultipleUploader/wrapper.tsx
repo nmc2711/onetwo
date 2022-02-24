@@ -44,10 +44,24 @@ const UploaderWrapper: React.FC<TUploadWrapper> = (({
     })
   };
 
+  useImperativeHandle(ref, () => ({
+    handleStartUploadingFiles() {
+      handleProcessFiles();
+    }
+  }));
+
   return (
-    <div>
+    <Uploader
+      width={width}
+      height={height}
+      handleSetImagesArray={handleSetImagesArray}
+      isDragAcceptColor={isDragNotAcceptColor}
+      isDragNotAcceptColor={isDragNotAcceptColor}
+      isDragRejectColor={isDragRejectColor}
+      multipleFiles={multipleFiles}
+    >
       
-    </div>
+    </Uploader>
   )
 })
 export default UploaderWrapper;
