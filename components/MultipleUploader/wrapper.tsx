@@ -2,12 +2,12 @@ import React, { useEffect, useState, forwardRef, useImperativeHandle, useLayoutE
 import Uploader from './uploader';
 
 interface TUploadWrapper {
-  width: string;
-  height: string;
+  width: any;
+  height: any;
   imagesArray: any;
   handleSetImagesArray: any;
-  isDragNotAcceptColor: boolean;
-  isDragRejectColor: boolean;
+  isDragNotAcceptColor: any;
+  isDragRejectColor: any;
   multipleFiles: any;
   apiEndpoint: any;
 };

@@ -3,7 +3,9 @@ import { uniqueId } from 'lodash';
 import fileSize from 'filesize';
 import { useDropzone } from 'react-dropzone';
 
-import { TUploader } from 'types/uploader'; 
+import { TUploader } from 'types/uploader';
+
+import Wrapper from './wrapper';
 
 
 const MultipleUploader: React.FC<TUploader> = ({
@@ -49,12 +51,21 @@ const MultipleUploader: React.FC<TUploader> = ({
     isDragActive,
     isDragAccept,
     isDragReject,
-   } = useDropzone({ onDrop });
+   }: any = useDropzone({ onDrop });
 
   return (
-    <div>
-      
-    </div>
+    <Wrapper
+      isDragAccept={isDragAccept}
+      isDragReject={isDragReject}
+      isDragAcceptColor={isDragAcceptColor}
+      isDragNotAcceptColor={isDragNotAcceptColor}
+      isDragRejectColor={isDragRejectColor}
+      width={width}
+      height={height}
+      {...getRootProps()}
+    >
+      <input {...getInputProps()} />
+    </Wrapper>
   )
 }
 export default MultipleUploader;

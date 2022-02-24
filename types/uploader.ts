@@ -6,11 +6,11 @@ export interface DataSource {
 }
 
 export interface TUploader {
-  width: string;
-  height: string;
-  isDragAcceptColor?: boolean;
-  isDragNotAcceptColor?: boolean;
-  isDragRejectColor?: boolean;
+  width: any;
+  height: any;
+  isDragAcceptColor?: any;
+  isDragNotAcceptColor?: any;
+  isDragRejectColor?: any;
   handleSetImagesArray: any;
   multipleFiles: any;
 }
