@@ -3425,6 +3425,11 @@ just-extend@^5.0.0:
   resolved "https://registry.yarnpkg.com/just-extend/-/just-extend-5.1.1.tgz#4f33b1fc719964f816df55acc905776694b713ab"
   integrity sha512-b+z6yF1d4EOyDgylzQo5IminlUmzSeqR1hs/bzjBNjuGras4FXq/6TrzjxfN0j+TmI0ltJzTNlqXUMCniciwKQ==
 
+kakao.maps.d.ts@^0.1.24:
+  version "0.1.24"
+  resolved "https://registry.yarnpkg.com/kakao.maps.d.ts/-/kakao.maps.d.ts-0.1.24.tgz#64bd2e9a656c900ee139c60d45a562c5e3bfd72c"
+  integrity sha512-QPtcdPSc1/tDzlRrWtBoeIbD524CaFxsSuShyFyGsvXDF0mWpezvuWysWAcE4O8B2rklZhD3oK++hw8nnJgCGQ==
+
 language-subtag-registry@~0.3.2:
   version "0.3.21"
   resolved "https://registry.npmjs.org/language-subtag-registry/-/language-subtag-registry-0.3.21.tgz"
@@ -4482,6 +4487,13 @@ react-kakao-login@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-kakao-login/-/react-kakao-login-2.1.0.tgz#674d7824284c7f88618d397cdd760745c85d78de"
   integrity sha512-yvwe9Qc5cG+ucDAWOoIW4QjMB55M0Y97v040pbjcmc3Ud+bYHbQ+SwcVkOBvfDynyQbLPPoGJ+iN8rCRD4lzJw==
+
+react-kakao-maps-sdk@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-kakao-maps-sdk/-/react-kakao-maps-sdk-1.0.4.tgz#0ccc52ee6559d7caca56095c5a9a7a7437ab38ff"
+  integrity sha512-F3zVEmJQ9Y84pEHAU5kD9Dfv9zB/oi7vVXuyQLBccjCRg/fGxf/SJLbk6r9Vr9JydMN6BjObd08uSmhB8wvaqQ==
+  dependencies:
+    kakao.maps.d.ts "^0.1.24"
 
 react-merge-refs@^1.1.0:
   version "1.1.0"

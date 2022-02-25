@@ -24,6 +24,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     Kakao.init(process.env.KAKAO_JS_KEY);
   }, []);
 
+  const MapKey = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.KAKAO_JS_KEY}&autoload=false&libraries=services,clusterer`
+
   return (
     <ChakraProvider theme={theme}>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
@@ -33,7 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
             <link rel="icon" href="/icons/favicon.ico" />
             <script defer src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-
+            <script defer src={MapKey}></script>
           </Head>
 
           {/* Child Components */}

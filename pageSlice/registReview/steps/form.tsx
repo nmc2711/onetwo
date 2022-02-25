@@ -6,6 +6,7 @@ import MutipleUploader from 'components/MultipleUploader/wrapper';
 
 import { Flex, Text, Box } from "@chakra-ui/react";
 import { TitleInput, ContentTextArea, ContentForm, ImgBox } from '../styled';
+import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
 // toolkit
 import { useAppSelector } from 'toolkit/hooks';
@@ -58,6 +59,15 @@ function FormStepComponent() {
           })
         }
       </Flex>
+
+      <Map
+      center={{ lat: 33.5563, lng: 126.79581 }}
+      style={{ width: "100%", height: "360px" }}
+    >
+      <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
+        <div style={{color:"#000"}}>Hello World!</div>
+      </MapMarker>
+    </Map>
     </React.Fragment>
   )
 }
