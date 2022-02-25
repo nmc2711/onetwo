@@ -1,18 +1,21 @@
-import React, { useEffect, useState, forwardRef, useImperativeHandle, useLayoutEffect } from 'react';
+/**
+* @title : file-uploader Wrapping components
+*/
+
+import React, { useEffect, useState, forwardRef, useImperativeHandle, ReactNode } from 'react';
+
 import Uploader from './uploader';
 import FilesList from './fileList';
 interface TUploadWrapper {
-  width: any;
-  height: any;
   imagesArray: any;
   handleSetImagesArray: any;
   multipleFiles: any;
   apiEndpoint: any;
   ref?: any;
+  addIcon? : ReactNode;
 };
 
-const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({ 
-  width, height, imagesArray, handleSetImagesArray, multipleFiles, apiEndpoint,
+const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({ imagesArray, handleSetImagesArray, multipleFiles, apiEndpoint, addIcon,
 }, ref: any) => {
   const [processedFilesArray, setProcessedFilesArray] = useState([]);
 
@@ -49,24 +52,20 @@ const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({
   }));
 
   return (
-    <div style={{ width : '200px', height: '200px' }}>
     <Uploader
-      width={width}
-      height={height}
       handleSetImagesArray={handleSetImagesArray}
       multipleFiles={multipleFiles}
+      addIcon={addIcon}
     >
-      {imagesArray.length > 0 && (
+      {/* {imagesArray.length > 0 && (
           <FilesList
             imagesArray={imagesArray}
             handleDeleteImage={handleDeleteImage}
             width={width}
             height={height}
           />
-        )}
+        )} */}
     </Uploader>
-    </div>
-
   )
 })
 UploaderWrapper.displayName = "UploaderWrapper";

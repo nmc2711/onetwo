@@ -6,7 +6,7 @@ import fileSize from 'filesize';
 import { TUploader } from 'types/uploader';
 
 const MultipleUploader: React.FC<TUploader> = props => {
-  const { width, height, handleSetImagesArray, multipleFiles,
+  const { handleSetImagesArray, multipleFiles, addIcon,
   } = props;
   
   const createImageObj = (file: any) => {
@@ -48,17 +48,13 @@ const MultipleUploader: React.FC<TUploader> = props => {
     <div
       isDragAccept={isDragAccept}
       isDragReject={isDragReject}
-      width={width}
-      height={height}
       {...getRootProps()}
     >
       <input {...getInputProps()} />
       {isDragActive ? (
-          <p>이미지 첨부</p>
+          addIcon
         ) : (
-          <p>
-            이미지 첨부
-          </p>
+          addIcon
         )}
       {props.children}
     </div>

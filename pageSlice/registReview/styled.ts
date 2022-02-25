@@ -38,3 +38,19 @@ export const ContentForm = styled.div`
     left: 20px;
   }
 `;
+
+export const ImgBox = chakra(Flex, {
+  baseStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: '4px',
+    height: '78px',
+    width: '78px',
+    ml: '8px',
+    backgroundColor: 'dGray.300',
+    color: '#fff',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    overflow: 'hidden',
+  },
+});

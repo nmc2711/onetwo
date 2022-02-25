@@ -1,4 +1,4 @@
-import { ReactEventHandler } from 'react';
+import { ReactEventHandler, ReactNode } from 'react';
 
 export interface DataSource {
   id: number;
@@ -6,8 +6,7 @@ export interface DataSource {
 }
 
 export interface TUploader {
-  width: any;
-  height: any;
   handleSetImagesArray: any;
   multipleFiles: any;
+  addIcon: ReactNode;
 }
