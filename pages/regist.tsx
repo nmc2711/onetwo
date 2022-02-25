@@ -10,10 +10,11 @@ import BackPage from 'components/BackPage';
 import RegistReviewComponent from 'pageSlice/registReview';
  
 const RegistPage: React.FC = () => {
+
   const LeftSideComponents = () => {
     return (
       <Text fontWeight="bold" fontSize="m" color="dGray.500">다음</Text>
-    )
+    );
   }
 
   return (

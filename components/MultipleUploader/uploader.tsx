@@ -3,7 +3,7 @@ import { uniqueId } from 'lodash';
 import { useDropzone } from 'react-dropzone';
 import fileSize from 'filesize';
 
-import { TUploader } from 'types/uploader';
+import { TUploader, TDropZone } from 'types/uploader';
 
 const MultipleUploader: React.FC<TUploader> = props => {
   const { handleSetImagesArray, multipleFiles, addIcon,
@@ -42,7 +42,7 @@ const MultipleUploader: React.FC<TUploader> = props => {
     isDragActive,
     isDragAccept,
     isDragReject,
-   }: any = useDropzone({ onDrop });
+   }: TDropZone = useDropzone({ onDrop });
 
   return (
     <div

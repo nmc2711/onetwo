@@ -1,27 +1,27 @@
 /**
 * @title : file-uploader Wrapping components
 */
-
 import React, { useEffect, useState, forwardRef, useImperativeHandle, ReactNode } from 'react';
-
+import { Titem } from 'types/uploader';
 import Uploader from './uploader';
-import FilesList from './fileList';
+
 interface TUploadWrapper {
-  imagesArray: any;
+  imagesArray: Titem[];
   handleSetImagesArray: any;
-  multipleFiles: any;
-  apiEndpoint: any;
-  ref?: any;
+  multipleFiles: boolean;
+  apiEndpoint: string;
+  ref: React.ForwardedRef<ReactNode>;
   addIcon? : ReactNode;
 };
 
 const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({ imagesArray, handleSetImagesArray, multipleFiles, apiEndpoint, addIcon,
-}, ref: any) => {
+}, ref) => {
   const [processedFilesArray, setProcessedFilesArray] = useState([]);
 
-  // sideEffect
+  // SideEffect
   useEffect(() => {
-    () => () => {imagesArray.map((image: any) => {
+    () => () => {
+      imagesArray.map((image: Titem) => {
       URL.revokeObjectURL(image.preview);
     })}
   }, []);
@@ -30,14 +30,14 @@ const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({ imagesArray, han
     handleSetImagesArray(processedFilesArray);
   }, [processedFilesArray]);
 
-  const handleDeleteImage = async (index: any) => {
+  const handleDeleteImage = async (index: number) => {
     const tempImagesArray = [...imagesArray];
     tempImagesArray.splice(index, 1);
     handleSetImagesArray(tempImagesArray);
   }
 
   const handleProcessFiles = () => {
-    imagesArray.map(async (file: any) => {
+    imagesArray.map(async (file: Titem) => {
       const formData = new FormData();
 
       formData.append('file', file.file);
@@ -55,18 +55,10 @@ const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({ imagesArray, han
     <Uploader
       handleSetImagesArray={handleSetImagesArray}
       multipleFiles={multipleFiles}
-      addIcon={addIcon}
-    >
-      {/* {imagesArray.length > 0 && (
-          <FilesList
-            imagesArray={imagesArray}
-            handleDeleteImage={handleDeleteImage}
-            width={width}
-            height={height}
-          />
-        )} */}
-    </Uploader>
+      addIcon={addIcon} />
   )
-})
+});
+
 UploaderWrapper.displayName = "UploaderWrapper";
+
 export default UploaderWrapper;

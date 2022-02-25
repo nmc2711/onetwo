@@ -1,23 +1,26 @@
 import React, { useState, useRef } from 'react';
-import { chakra, Flex, Text, Input, Box } from "@chakra-ui/react";
+
+import { Titem } from 'types/uploader';
 
 import MutipleUploader from 'components/MultipleUploader/wrapper';
 
+import { Flex, Text, Box } from "@chakra-ui/react";
 import { TitleInput, ContentTextArea, ContentForm, ImgBox } from '../styled';
 
 // toolkit
 import { useAppSelector } from 'toolkit/hooks';
 
 function FormStepComponent() {
-  const [imageArray, setImageArray] = useState([]);
-  const childRef = useRef<any>();
+  const [imageArray, setImageArray] = useState<Titem[]>([]);
 
-  const handleSetImagesArray = (images: any) => {
+  const childRef = useRef();
+
+  const handleSetImagesArray = (images: Titem[]) => {
     setImageArray(images);
   }
 
   return (
-    <>
+    <React.Fragment>
       <Box p="16px 20px" borderBottom="1px solid rgba(34, 34, 34, 0.03)">
         <TitleInput placeholder="제목을 입력해 주세요." />
       </Box>
@@ -36,36 +39,26 @@ function FormStepComponent() {
         </label>
       </ContentForm>
 
-      <Flex m="24px 0" display="flex" flexWrap="wrap" height="78px" flexDirection="column" overflowY="scroll">
+      <Flex m="24px 0" display="flex" flexWrap="wrap" height="78px" flexDirection="column" overflowY="scroll" alignContent="flex-start">
         <MutipleUploader
           ref={childRef}
           imagesArray={imageArray}
           handleSetImagesArray={handleSetImagesArray}
           multipleFiles={true}
-          apiEndpoint='http://localhost:5000/admin/products/publish/media'
+          apiEndpoint=''
           addIcon={<ImgBox>사진 <br />등록</ImgBox>}
         />
         {imageArray.length > 0 && 
-          imageArray.map((item: any) => {
+          imageArray.map((item: Titem) => {
             return (
-              <ImgBox 
-                borderRadius="4px"
-                w="78px" 
-                h="78px" 
-                ml="8px" 
-                backgroundColor="dGray.300"
-                color="#fff"
-                fontWeight="bold"
-                textAlign="center"
-                key={item.name}
-                >
-                  <img src={item.preview} style={{ width: '100%', height: '100%' }}/>
+              <ImgBox key={item.name}>
+                <img src={item.preview} style={{ width: '100%', height: '100%' }} />
               </ImgBox>
             )
           })
         }
       </Flex>
-    </>
+    </React.Fragment>
   )
 }
 export default FormStepComponent;
