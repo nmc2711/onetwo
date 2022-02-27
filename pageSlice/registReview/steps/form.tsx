@@ -65,7 +65,7 @@ function FormStepComponent() {
       style={{ width: "100%", height: "360px" }}
     >
       <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
-        <div style={{color:"#000"}}>Hello World!</div>
+        <div style={{color:"#000"}}>을왕리 횟집</div>
       </MapMarker>
     </Map>
     </React.Fragment>
