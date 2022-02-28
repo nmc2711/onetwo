@@ -54,3 +54,16 @@ export const ImgBox = chakra(Flex, {
     overflow: 'hidden',
   },
 });
+
+export const TasteHeader = styled.div`
+  padding: 16px 20px;
+  position: relative;
+`;
+
+export const TasteRowWrap = styled.div`
+
+`;
+
+export const TasteColWrap = styled.div`
+
+`;
