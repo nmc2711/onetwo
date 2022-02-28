@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Flex, Text, Box } from "@chakra-ui/react";
 
-import { WelcomeType } from '../enum';
+import { WelcomeType, ToiletType, VibeType, KnowType } from '../enum';
 
-import { TasteHeader, TasteRowWrap, TasteSubTitle } from '../styled';
+import { TasteHeader, TasteRowWrap, TasteColWrap, TasteSubTitle } from '../styled';
 
 function TasteComponent() {
   return (
@@ -18,6 +18,34 @@ function TasteComponent() {
         {WelcomeType.map((welcomeItem, idx: number) => {
           return (
             <div key={idx + welcomeItem}>{welcomeItem}</div>
+          );
+        })}
+      </TasteRowWrap>
+
+      <TasteColWrap>
+        <TasteSubTitle>화장실</TasteSubTitle>
+        {ToiletType.map((toiletItem, idx: number)=> {
+          return (
+            <div key={idx + toiletItem}>{toiletItem}</div>
+          )
+        })}
+      </TasteColWrap>
+
+      <TasteRowWrap>
+        <TasteSubTitle>바이브</TasteSubTitle>
+        {VibeType.map((vibeItem, idx: number) => {
+          return (
+            <div key={idx + vibeItem}>{vibeItem}</div>
+          );
+        })}
+      </TasteRowWrap>
+
+
+      <TasteRowWrap>
+        <TasteSubTitle>알고 가면 좋아요</TasteSubTitle>
+        {KnowType.map((knowItem, idx: number) => {
+          return (
+            <div key={idx + knowItem}>{knowItem}</div>
           );
         })}
       </TasteRowWrap>
