@@ -61,9 +61,21 @@ export const TasteHeader = styled.div`
 `;
 
 export const TasteRowWrap = styled.div`
-
+  display: flex;
+  flex-direction: row;
+  padding: 16px 20px;
 `;
 
 export const TasteColWrap = styled.div`
-
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
 `;
+
+export const TasteSubTitle = chakra(Text, {
+  baseStyle: {
+    marginBottom: '16px',
+    color: 'dGray.700',
+    fontWeight: 'bold'
+  },
+});
