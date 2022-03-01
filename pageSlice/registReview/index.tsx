@@ -1,10 +1,11 @@
 import React from 'react';
 
-import FormStep from './steps/form';
+import TasteComponent from './steps/taste';
+import FormComponent from './steps/form';
 
 function RegistReviewComponent() {
   return (
-    <FormStep />
+    <FormComponent />
   )
 }
 export default RegistReviewComponent;

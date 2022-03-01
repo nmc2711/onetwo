@@ -21,7 +21,7 @@ function FormStepComponent() {
   }
 
   return (
-    <React.Fragment>
+    <Box paddingTop="58px">
       <Box p="16px 20px" borderBottom="1px solid rgba(34, 34, 34, 0.03)">
         <TitleInput placeholder="제목을 입력해 주세요." />
       </Box>
@@ -68,7 +68,7 @@ function FormStepComponent() {
         <div style={{color:"#000"}}>을왕리 횟집</div>
       </MapMarker>
     </Map>
-    </React.Fragment>
+    </Box>
   )
 }
 export default FormStepComponent;

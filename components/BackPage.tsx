@@ -27,7 +27,7 @@ const BackPage: React.FC<PageProps> = ({ title, children, leftSideComponent }) =
   },[colorMode]);
 
   return (
-    <Box bg={{ sm: ThemeBG, lg: ThemeBG }}>
+    <Box bg={{ sm: ThemeBG, lg: ThemeBG }} position="relative">
       <Head>
         <title>{title} - Digging</title>
       </Head>
