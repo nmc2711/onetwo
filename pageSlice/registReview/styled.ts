@@ -56,7 +56,7 @@ export const ImgBox = chakra(Flex, {
 });
 
 export const TasteHeader = styled.div`
-  padding: 16px 20px;
+  margin-bottom: 40px;
   position: relative;
 `;
 
@@ -67,9 +67,8 @@ export const TasteRowWrap = styled.div`
 `;
 
 export const TasteColWrap = styled.div`
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
-  padding: 16px 20px;
 `;
 
 export const TasteSubTitle = chakra(Text, {
@@ -80,7 +79,7 @@ export const TasteSubTitle = chakra(Text, {
   },
 });
 
-export const Stiker = styled.div`
+export const RowStiker = styled.div`
   display: flex;
   align-items: center;
   padding: 8px 10px 8px 14px;
@@ -94,6 +93,24 @@ export const Stiker = styled.div`
   &:nth-child(2n) {
     margin-left: 10px;
   }
+
+  > span {
+    margin-left: 4px;
+  }
+`;
+
+
+export const ColStiker = styled.div`
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  padding: 8px 10px 8px 14px;
+  font-size: 14px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  margin-bottom: 14px;
 
   > span {
     margin-left: 4px;
