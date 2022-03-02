@@ -63,7 +63,7 @@ export const TasteHeader = styled.div`
 export const TasteRowWrap = styled.div`
   display: flex;
   flex-direction: row;
-  padding: 16px 20px;
+  flex-wrap: wrap;
 `;
 
 export const TasteColWrap = styled.div`
@@ -79,3 +79,23 @@ export const TasteSubTitle = chakra(Text, {
     fontWeight: 'bold'
   },
 });
+
+export const Stiker = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 8px 10px 8px 14px;
+  font-size: 14px;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid rgba(34, 34, 34, 0.08);
+  margin-bottom: 14px;
+
+  &:nth-child(2n) {
+    margin-left: 10px;
+  }
+
+  > span {
+    margin-left: 4px;
+  }
+`;

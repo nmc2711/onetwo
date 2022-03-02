@@ -1,26 +1,35 @@
 import React from 'react';
+import Image from 'next/image';
 
 import { Flex, Text, Box } from "@chakra-ui/react";
 
 import { WelcomeType, ToiletType, VibeType, KnowType } from '../enum';
 
-import { TasteHeader, TasteRowWrap, TasteColWrap, TasteSubTitle } from '../styled';
+import { TasteHeader, TasteRowWrap, TasteColWrap, TasteSubTitle, Stiker } from '../styled';
+
+import SticSVG from 'asset/svgs/stic.svg';
 
 function TasteComponent() {
   return (
-    <Flex flexDirection="column" paddingTop="58px">
+    <Flex flexDirection="column" padding="58px 20px">
       <TasteHeader>
-        <Text fontWeight="800" fontSize="xxl" color="dGray.900" letterSpacing="-0.5px">이 음식점의 키워드를 <br />선택해주세요</Text>
+        <Text fontWeight="800" fontSize="xxl" color="dGray.900" letterSpacing="-0.5px" marginBottom="28px">이 음식점의 키워드를 <br />선택해주세요</Text>
       </TasteHeader>
       
-      <TasteRowWrap>
+      <Box>
         <TasteSubTitle>환영</TasteSubTitle>
-        {WelcomeType.map((welcomeItem, idx: number) => {
-          return (
-            <div key={idx + welcomeItem}>{welcomeItem}</div>
-          );
-        })}
-      </TasteRowWrap>
+        <TasteRowWrap>  
+          {WelcomeType.map((welcomeItem, idx: number) => {
+            return (
+              <Stiker key={idx + welcomeItem}>
+                <Image src={SticSVG} alt="버튼 스티커"/>
+                <span>{welcomeItem}</span>
+              </Stiker>
+            );
+          })}
+        </TasteRowWrap>
+      </Box>
+
 
       <TasteColWrap>
         <TasteSubTitle>화장실</TasteSubTitle>
