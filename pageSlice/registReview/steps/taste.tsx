@@ -44,25 +44,34 @@ function TasteComponent() {
         </TasteColWrap>
       </Box>
 
-
-      <TasteRowWrap>
+      <Box>
         <TasteSubTitle>바이브</TasteSubTitle>
-        {VibeType.map((vibeItem, idx: number) => {
-          return (
-            <div key={idx + vibeItem}>{vibeItem}</div>
-          );
-        })}
-      </TasteRowWrap>
+        <TasteRowWrap>
+          {VibeType.map((vibeItem, idx: number) => {
+            return (
+              <RowStiker key={idx + vibeItem}>
+                <Image src={SticSVG} alt="버튼 스티커" />
+                <span>{vibeItem}</span>
+              </RowStiker>
+            );
+          })}
+        </TasteRowWrap>
+      </Box>
 
 
-      <TasteRowWrap>
+      <Box>
         <TasteSubTitle>알고 가면 좋아요</TasteSubTitle>
-        {KnowType.map((knowItem, idx: number) => {
-          return (
-            <div key={idx + knowItem}>{knowItem}</div>
-          );
-        })}
-      </TasteRowWrap>
+        <TasteRowWrap>
+          {KnowType.map((knowItem, idx: number) => {
+            return (
+              <RowStiker key={idx + knowItem}>
+                <Image src={SticSVG} alt="버튼 스티커" />
+                <span>{knowItem}</span>
+              </RowStiker>
+            );
+          })}
+        </TasteRowWrap>
+      </Box>
     </Flex>
   )
 }
