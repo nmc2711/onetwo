@@ -5,7 +5,7 @@ import FormComponent from './steps/form';
 
 function RegistReviewComponent() {
   return (
-    <TasteComponent />
+    <FormComponent />
   )
 }
 export default RegistReviewComponent;
