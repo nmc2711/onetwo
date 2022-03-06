@@ -8,6 +8,8 @@ import { Flex, Text, Box } from "@chakra-ui/react";
 import { TitleInput, ContentTextArea, ContentForm, ImgBox } from '../styled';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 
+import { baseApiUrl } from 'enum/config';
+
 // toolkit
 import { useAppSelector } from 'toolkit/hooks';
 
@@ -46,7 +48,7 @@ function FormStepComponent() {
           imagesArray={imageArray}
           handleSetImagesArray={handleSetImagesArray}
           multipleFiles={true}
-          apiEndpoint=''
+          apiEndpoint={`${baseApiUrl}/uploads/images`}
           addIcon={<ImgBox>사진 <br />등록</ImgBox>}
         />
         {imageArray.length > 0 && 

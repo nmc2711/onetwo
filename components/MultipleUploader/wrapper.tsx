@@ -39,23 +39,29 @@ const UploaderWrapper: React.FC<TUploadWrapper> = forwardRef(({ imagesArray, han
   const handleProcessFiles = () => {
     imagesArray.map(async (file: Titem) => {
       const formData = new FormData();
-
+      console.log(formData)
       formData.append('file', file.file);
-      // fetch logic here
+      await handleUploadFile(formData);
     })
   };
+
+  const handleUploadFile = async (formData: any, processedFilesArray?: any) => {
+    // const res = await getProducts({ tags:'NO_KIDS_ZONE', tag: 'CHEAP', page: 1, limit: 5, lastId: '' })
+
+  }
 
   useImperativeHandle(ref, () => ({
     handleStartUploadingFiles() {
       handleProcessFiles();
     }
-  }));
+  }), [imagesArray]);
 
   return (
     <Uploader
       handleSetImagesArray={handleSetImagesArray}
       multipleFiles={multipleFiles}
-      addIcon={addIcon} />
+      addIcon={addIcon}
+    />
   )
 });
 
