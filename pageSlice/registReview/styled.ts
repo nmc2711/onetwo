@@ -116,3 +116,4 @@ export const ColStiker = styled.div`
     margin-left: 4px;
   }
 `;
+

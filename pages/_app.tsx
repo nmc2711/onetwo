@@ -14,6 +14,7 @@ import { wrapper } from 'toolkit/store';
 import Head from 'next/head';
 
 import "styles/globals.css";
+import "styles/animate.css"
 
 import theme from "styles/theme";
 
