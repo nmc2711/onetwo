@@ -14,6 +14,7 @@ import { wrapper } from 'toolkit/store';
 import Head from 'next/head';
 
 import "styles/globals.css";
+
 import theme from "styles/theme";
 
 const { Kakao }: any = typeof window !== "undefined" && window;

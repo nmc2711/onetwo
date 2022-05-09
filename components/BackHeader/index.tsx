@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
-import Image from 'next/image';
-import Link from "next/link";
-
-import { Flex, Box } from '@chakra-ui/react';
 import { useRouter } from "next/router";
+
+import Image from 'next/image';
+import { Flex, Box } from '@chakra-ui/react';
+
 import ArrowbackSvg from 'asset/svgs/arrowback-black.svg';
 
 interface PageProps {
