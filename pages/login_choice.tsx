@@ -4,14 +4,23 @@
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
+import { kakaoLogin } from 'apiCall/feature/login';
+import { useRouter } from "next/router";
 const CircleSum = dynamic(() => import("components/Background/circleSum"), { ssr: false });
 import DefaultLogo from 'components/Logo/default';
 
-import { Flex, Box, Text } from '@chakra-ui/react';
+import { Flex, Box, Text, Button } from '@chakra-ui/react';
 
 import DoubleCloneSvg from 'asset/svgs/doubleclone.svg';
+import KakaoSvg from 'asset/svgs/ic-24-kakao.svg';
 
 const LoginChoice = () => {
+  const { signInKakao  } = kakaoLogin();
+  const router = useRouter();
+  
+  const handleSubmitKako = async () => {
+    await signInKakao();
+  };
   const innerWidth = typeof window !== "undefined" && window.innerWidth;
   return (
     <Box h="100vh">
@@ -57,10 +66,18 @@ const LoginChoice = () => {
             <Image src={DoubleCloneSvg} />
           </Box>
         </Box>
-
-
-        <CircleSum />
       </Flex>
+      <CircleSum />
+
+      <Flex m="20px" flexDirection="column">
+        <Button p="20px" w="100%" bg="#7BC600" color="#fff" fontWeight="800" fontSize="16px" minHeight="60px" borderRadius="12px" onClick={handleSubmitKako}>
+          <Image src={KakaoSvg} /> <span style={{ marginLeft: "4px" }}>카카오 로그인</span>
+        </Button>
+        <Button m="16px 0" w="100%" bg="transparent" color="rgba(34, 34, 34, 0.25)" fontWeight="800" fontSize="16px" minHeight="26px" borderRadius="12px" onClick={() => router.back()}>
+          <span>둘러보기</span>
+        </Button>
+      </Flex>
+      
     </Box>
   );
 }

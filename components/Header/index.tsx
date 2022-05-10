@@ -50,7 +50,9 @@ const HeaderComponent = () => {
               <NavText mr={0}>MyPage</NavText>
             </Link>
             :
-            <NavText mr={0} onClick={handleSubmitKako}>Login</NavText>
+            <Link href="/login_choice" passHref>
+            <NavText mr={0}>Login</NavText>
+          </Link>
           }
         </Flex>
       </StickyHeader>
