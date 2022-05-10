@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 const CircleSum = dynamic(() => import("components/Background/circleSum"), { ssr: false });
 import DefaultLogo from 'components/Logo/default';
 
-import { Flex, Box, Text, Button, Skeleton, Stack } from '@chakra-ui/react';
+import { Flex, Box, Text, Button, Skeleton, Spinner } from '@chakra-ui/react';
 
 import DoubleCloneSvg from 'asset/svgs/doubleclone.svg';
 import KakaoSvg from 'asset/svgs/ic-24-kakao.svg';
@@ -20,9 +20,11 @@ const LoginChoice = () => {
   const router = useRouter();
 
   const [loading, setLoading] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
 
   const handleSubmitKako = async () => {
     await signInKakao();
+    setIsLogin(true);
   };
   const innerWidth = typeof window !== "undefined" && window.innerWidth;
 
@@ -77,7 +79,18 @@ const LoginChoice = () => {
           </Box>
         </Box>
       </Flex>
+        {isLogin ?
+        <Flex h="42vh" alignItems="center" justifyContent="center">
+          <Spinner
+            thickness='4px'
+            speed='0.65s'
+            emptyColor='gray.200'
+            color='#7BC600'
+            size='xl'
+          />
+        </Flex>
 
+        :
         <Skeleton isLoaded={!loading} h="42vh">
           <>
             <CircleSum />
@@ -92,6 +105,7 @@ const LoginChoice = () => {
             </Flex>
           </>
         </Skeleton>
+        }
     </Box>
   );
 }
