@@ -29,7 +29,7 @@ const LoginChoice = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 500);
+    }, 1200);
   }, []);
 
   return (

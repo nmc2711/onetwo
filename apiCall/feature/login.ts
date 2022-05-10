@@ -24,9 +24,7 @@ export function kakaoLogin() {
           try {
             const user = await mutation.mutateAsync({ accessToken: authObj.access_token });
             queryClient.setQueryData(USER_QUERY_KEY, user);
-            setTimeout(() => {
-              router.back();
-            }, 50);
+            router.back();
             return true;
           } catch (err) {
             return false;
