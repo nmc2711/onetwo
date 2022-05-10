@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from 'react-query';
 import { fetchJson } from 'lib/api';
+import { useRouter } from "next/router";
 
 const USER_QUERY_KEY = 'user';
 
@@ -13,6 +14,8 @@ export function kakaoLogin() {
   }, '정확한 계정 정보를 입력해 주세요.'));
 
   const queryClient = useQueryClient();
+
+  const router = useRouter();
   
   return {
     signInKakao: async () => {
@@ -21,6 +24,9 @@ export function kakaoLogin() {
           try {
             const user = await mutation.mutateAsync({ accessToken: authObj.access_token });
             queryClient.setQueryData(USER_QUERY_KEY, user);
+            setTimeout(() => {
+              router.back();
+            }, 50);
             return true;
           } catch (err) {
             return false;
