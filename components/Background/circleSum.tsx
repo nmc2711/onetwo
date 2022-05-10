@@ -1,4 +1,4 @@
-import { Flex, Image } from '@chakra-ui/react';
+import { Flex, Image, Skeleton } from '@chakra-ui/react';
 import getWindowSize from 'hooks/useGetWindowSize';
 interface TItem {
   w: string;
@@ -36,7 +36,7 @@ const CircleSum = () => {
   }
 
   return (
-    <Flex h="max-content" position="relative" minHeight="42vh" overflow="hidden" >
+    <Flex position="relative" h="42vh" overflow="hidden" >
       <CircleItem left="22.5%" top="12%" w={`${+width * 0.2}px`} h={`${+width * 0.2}px`} src="/human1.png" className="slide-right" />
       <CircleItem right="7.2%" top="16%" w={`${+width * 0.245}px`} h={`${+width * 0.245}px`} src="/human2.png" className="slide-top" />
       <CircleItem left="2%" top="36%" w={`${+width * 0.25}px`} h={`${+width * 0.25}px`} src="/human3.png" className="slide-right" />
