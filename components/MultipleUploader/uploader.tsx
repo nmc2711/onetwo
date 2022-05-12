@@ -48,6 +48,7 @@ const MultipleUploader: React.FC<TUploader> = props => {
     <div
       isDragAccept={isDragAccept}
       isDragReject={isDragReject}
+      style={{ width: '25%' }}
       {...getRootProps()}
     >
       <input {...getInputProps()} />

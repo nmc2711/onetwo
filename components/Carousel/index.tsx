@@ -27,7 +27,6 @@ const ImageCarousel = () => {
         0,
         imageArray.length
       );
-
       setSelectedImageIndex(0);
       setSelectedImage(imageArray[0]);
     }
@@ -37,32 +36,6 @@ const ImageCarousel = () => {
     if (imageArray && imageArray.length > 0) {
       setSelectedImage(imageArray[newIdx]);
       setSelectedImageIndex(newIdx);
-      if (carouselItemsRef?.current[newIdx]) {
-        carouselItemsRef?.current[newIdx]?.scrollIntoView({
-          inline: "center",
-          behavior: "smooth"
-        });
-      }
-    }
-  };
-
-  const handleRightClick = () => {
-    if (imageArray && imageArray.length > 0) {
-      let newIdx = selectedImageIndex + 1;
-      if (newIdx >= imageArray.length) {
-        newIdx = 0;
-      }
-      handleSelectedImageChange(newIdx);
-    }
-  };
-
-  const handleLeftClick = () => {
-    if (imageArray && imageArray.length > 0) {
-      let newIdx = selectedImageIndex - 1;
-      if (newIdx < 0) {
-        newIdx = imageArray.length - 1;
-      }
-      handleSelectedImageChange(newIdx);
     }
   };
 
@@ -80,7 +53,7 @@ const ImageCarousel = () => {
             handleSetImagesArray={handleSetImagesArray}
             multipleFiles={true}
             apiEndpoint={`${baseApiUrl}/uploads/images`}
-            addIcon={<button>사진 <br />등록</button>}
+            addIcon={<button style={{ width: '100%', height: '78px', background: "black", color: "#fff" }}>사진 <br />등록</button>}
           />
           {imageArray &&
             imageArray.map((image, idx) => (
