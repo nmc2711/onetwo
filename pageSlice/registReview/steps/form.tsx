@@ -2,13 +2,9 @@ import React, { useState, useRef } from 'react';
 
 import { Titem } from 'types/uploader';
 
-import MutipleUploader from 'components/MultipleUploader/wrapper';
-
-import { Flex, Text, Box } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 import { TitleInput, ContentTextArea, ContentForm, ImgBox } from '../styled';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
-
-import { baseApiUrl } from 'enum/config';
 
 // toolkit
 import { useAppSelector } from 'toolkit/hooks';
@@ -42,7 +38,7 @@ function FormStepComponent() {
         </label>
       </ContentForm>
 
-      <Flex m="24px 0" display="flex" flexWrap="wrap" height="78px" flexDirection="column" overflowY="scroll" alignContent="flex-start">
+      {/* <Flex m="24px 0" display="flex" flexWrap="wrap" height="78px" flexDirection="column" overflowY="scroll" alignContent="flex-start">
         <MutipleUploader
           ref={childRef}
           imagesArray={imageArray}
@@ -60,7 +56,7 @@ function FormStepComponent() {
             )
           })
         }
-      </Flex>
+      </Flex> */}
 
       <Map
       center={{ lat: 33.5563, lng: 126.79581 }}
