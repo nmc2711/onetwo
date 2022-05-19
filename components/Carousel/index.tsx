@@ -41,10 +41,15 @@ const ImageCarousel = () => {
 
   return (
     <div className="carousel-container">
-      <div
-        className="selected-image"
-        style={{ backgroundImage: `url(${selectedImage?.preview})` }}
-      />
+      {imageArray && imageArray.length === 0 ? 
+        <div className="empty-preview-image">
+          사진을 등록해주세요
+        </div>
+        :
+        <div
+          className="selected-image"
+          style={{ backgroundImage: `url(${selectedImage?.preview})` }}
+        />}
       <div className="carousel">
         <div className="carousel__images">
           <MutipleUploader
